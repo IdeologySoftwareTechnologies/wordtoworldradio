@@ -1,13 +1,32 @@
 # == Route Map
 #
-# You don't have any routes defined!
-#
-# Please add some routes in config/routes.rb.
-#
-# For more information about routes, see the Rails guide: http://guides.rubyonrails.org/routing.html.
+#                    Prefix Verb   URI Pattern                        Controller#Action
+#         new_admin_session GET    /admins/sign_in(.:format)          devise/sessions#new
+#             admin_session POST   /admins/sign_in(.:format)          devise/sessions#create
+#     destroy_admin_session DELETE /admins/sign_out(.:format)         devise/sessions#destroy
+#            admin_password POST   /admins/password(.:format)         devise/passwords#create
+#        new_admin_password GET    /admins/password/new(.:format)     devise/passwords#new
+#       edit_admin_password GET    /admins/password/edit(.:format)    devise/passwords#edit
+#                           PATCH  /admins/password(.:format)         devise/passwords#update
+#                           PUT    /admins/password(.:format)         devise/passwords#update
+# cancel_admin_registration GET    /admins/cancel(.:format)           devise/registrations#cancel
+#        admin_registration POST   /admins(.:format)                  devise/registrations#create
+#    new_admin_registration GET    /admins/sign_up(.:format)          devise/registrations#new
+#   edit_admin_registration GET    /admins/edit(.:format)             devise/registrations#edit
+#                           PATCH  /admins(.:format)                  devise/registrations#update
+#                           PUT    /admins(.:format)                  devise/registrations#update
+#                           DELETE /admins(.:format)                  devise/registrations#destroy
+#        admin_confirmation POST   /admins/confirmation(.:format)     devise/confirmations#create
+#    new_admin_confirmation GET    /admins/confirmation/new(.:format) devise/confirmations#new
+#                           GET    /admins/confirmation(.:format)     devise/confirmations#show
+#              admin_unlock POST   /admins/unlock(.:format)           devise/unlocks#create
+#          new_admin_unlock GET    /admins/unlock/new(.:format)       devise/unlocks#new
+#                           GET    /admins/unlock(.:format)           devise/unlocks#show
 #
 
 Rails.application.routes.draw do
+  #devise_for :admins
+  devise_for :admins, path: "admin", path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
