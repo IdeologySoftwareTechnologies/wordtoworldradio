@@ -3,6 +3,12 @@ source 'https://rubygems.org'
 ruby '2.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jbuilder'
 
 gem 'quiet_assets'
 gem 'annotate'
@@ -30,12 +36,6 @@ group :test do
   gem 'capybara'
 end
 
-gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder'
 
 group :doc do
   gem 'sdoc', require: false
