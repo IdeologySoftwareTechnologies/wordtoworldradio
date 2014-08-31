@@ -1,16 +1,30 @@
+
+
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Wordtoworldradio</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Word To World Radio<%#= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+    <%#= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= render 'layouts/devices' %>
+    <%#= javascript_include_tag "application" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </head>
+  <body>    
+  <header class="site-header" role="banner"> 
+     <%= render 'layouts/header' %>   
+  </header>  
+  <div class="main-container">    
+      <%= yield %>  
+  </div>   
+  <footer  class="site-footer" role="banner">   
+      <%= render 'layouts/footer' %>    
+  </footer>
 
-<%= yield %>
-
-</body>
+  </body>
 </html>
