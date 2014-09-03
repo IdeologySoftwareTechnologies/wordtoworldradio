@@ -1,0 +1,16 @@
+  <h1>Listing posts</h1>
+  <div id="search_field" >
+    <%= search_form_for @search, :remote => true,  :id => "search_form"  do |f| %>
+      <div id="field">
+        <%= f.text_field :date_cont , :id  => 'search_box', :readonly => true %>
+        </div>
+        <% end %>
+   </div>
+ 
+  <div id="image">
+      <%= render partial: 'image', format: 'js' %>
+  </div>
+
+
+<%= link_to 'New Post', new_post_path %>
+<%= link_to 'home', posts_path %>

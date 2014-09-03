@@ -21,6 +21,8 @@ gem 'friendly_id'
 gem 'carrierwave'
 gem 'devise'
 gem 'rails_admin'
+gem 'ransack'
+
 
 group :development do
   gem 'spring'
