@@ -27,6 +27,7 @@ gem 'carrierwave-video'
 gem 'jquery-turbolinks'
 gem 'carrierwave-video-thumbnailer'
 gem 'will_paginate-bootstrap'
+gem 'rmagick'
 
 
 group :development do
