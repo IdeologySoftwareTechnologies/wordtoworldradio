@@ -22,6 +22,11 @@ gem 'carrierwave'
 gem 'devise'
 gem 'rails_admin'
 gem 'ransack'
+gem 'rabl'
+gem 'carrierwave-video'
+gem 'jquery-turbolinks'
+gem 'carrierwave-video-thumbnailer'
+gem 'will_paginate-bootstrap'
 
 
 group :development do

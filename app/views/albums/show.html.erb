@@ -1,0 +1,312 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+<style type="text/css">
+   body { background-color: #ACACAC; }
+      .img-responsive:hover{
+       }
+</style>
+<br>
+
+<div class="row">
+  <div class="visible-lg visible-md">
+    <div class="bar">
+      <%= render 'player' %>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row">
+<div class="visible-sm">
+  <div class="bar-sm">
+    <%= render 'player' %>
+  </div>
+</div>
+</div>
+
+
+<div class="visible-xs">
+  <div class="container-fluid">
+  <div class="bar-sm">
+    <%= render 'mobile' %>
+  </div>
+  </div>
+</div>
+
+
+
+
+<div class="col-md-4" >
+  <div id="current">
+      <div class="current-text">
+       Album:  <%= @album.name %>
+      </div>
+     <%=image_tag  @album.cover_url ,:class => "img-responsive" %>  <br>
+  </div>
+</div>
+
+
+<div class="col-md-4">
+  <div class="playlist"> 
+    <%= render 'playlist'%>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <%= render 'slider' %>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+  </div>
+      <% @albums.each do |album|  %>
+        <div class="col-lg-2 col-md-2 col-xs-6 ">
+            <a class="thumbnail" href="<%= album_path(album) %>">
+              <%= image_tag album.cover_url , :class => "img-responsive" %></a>
+        </div>
+      <% end %>
+</div>    
+
+
+<div class="search-form">
+          <%= form_tag(album_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+        <div class="col-sm-3 col-md-3 pull-right">
+          <form class="navbar-form" role="search">
+            <div class="input-group">
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Albums", id: "srch-term" %>
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>   
+      </div>
+            <% end %>
+
+
+ <%#= will_paginate @albums,renderer: BootstrapPagination::Rails, :page_links => false %>
+
+<div class="col-md-6">
+    <%= form_for :audio,url: audios_path(album_id: @album.id) do |f| %>
+    <br/>
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :artist %><br>
+      <%= f.text_field :artist %>
+    </div>
+    <div class="field">
+      <%= f.label :audio %><br>
+      <%= f.file_field :audio %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <% end %>
+</div>
+
+
+<%#= render_shareable  %>
+
+
+<script type="text/javascript">
+  $('#carousel-example-generic-mobile').swipe( {
+    swipeLeft: function() {
+        $(this).carousel('next');
+    },
+    swipeRight: function() {
+        $(this).carousel('prev');
+    },
+    allowPageScroll: 'vertical'
+});
+</script>
+
+
+<%= form_tag album_path , method: :get do  %>
+  <% @album.audios.each do  |audio| %>
+    <%= check_box_tag "audio_ids[]",audio.id  %>
+    <%= audio.name %><br/>
+  <% end %>
+  <%= submit_tag "play", :class => "play"%>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- template -->
+    <div class="ms-staff-carousel">
+      <!-- masterslider -->
+      <div class="master-slider" id="masterslider">
+          <div class="ms-slide">
+              <img src="../masterslider/blank.gif" data-src="img/1.jpg" alt="lorem ipsum dolor sit"/>  
+              <div class="ms-info">
+                <h3>JULIA B. MCRAFLANE</h3>
+                <h4>COMPANY CEO</h4>
+                <p class="email">E-Mail: <a href="#">juliab@jourrapide.com</a></p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+                <ul class="ms-socials">
+                  <li class="ms-ico-fb"><a href="#">facebook</a></li>
+                  <li class="ms-ico-tw"><a href="#">twitter</a></li>
+                  <li class="ms-ico-gp"><a href="#">google+</a></li>
+                  <li class="ms-ico-yt"><a href="#">youtube</a></li>
+                </ul>
+              </div>     
+          </div>
+          <div class="ms-slide">
+              <img src="../masterslider/blank.gif" data-src="img/2.jpg" alt="lorem ipsum dolor sit"/>     
+                <div class="ms-info">
+                <h3>AMY CLAYTON</h3>
+                <h4>PROGRAMMER</h4>
+                <p class="email">E-Mail: <a href="#">amyclayton@teleor.us</a></p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+                <ul class="ms-socials">
+                  <li class="ms-ico-fb"><a href="#">facebook</a></li>
+                  <li class="ms-ico-tw"><a href="#">twitter</a></li>
+                  <li class="ms-ico-gp"><a href="#">google+</a></li>
+                  <li class="ms-ico-yt"><a href="#">youtube</a></li>
+                </ul>
+              </div>     
+          </div>
+          <div class="ms-slide">
+              <img src="../masterslider/blank.gif" data-src="img/3.jpg" alt="lorem ipsum dolor sit"/>
+                <div class="ms-info">
+                <h3>FRED PENNER</h3>
+                <h4>WEB DEVELOPER</h4>
+                <p class="email">E-Mail: <a href="#">fredpenner@dayrep.com</a></p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+                <ul class="ms-socials">
+                  <li class="ms-ico-fb"><a href="#">facebook</a></li>
+                  <li class="ms-ico-tw"><a href="#">twitter</a></li>
+                  <li class="ms-ico-gp"><a href="#">google+</a></li>
+                  <li class="ms-ico-yt"><a href="#">youtube</a></li>
+                </ul>
+              </div>             
+          </div>
+          <div class="ms-slide">
+              <img src="../masterslider/blank.gif" data-src="img/4.jpg" alt="lorem ipsum dolor sit"/>
+               <div class="ms-info">
+                <h3>MARTINA SAIZ</h3>
+                <h4>UI DESIGNER</h4>
+                <p class="email">E-Mail: <a href="#">martinasaiz@dayrep.com</a></p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+                <ul class="ms-socials">
+                  <li class="ms-ico-fb"><a href="#">facebook</a></li>
+                  <li class="ms-ico-tw"><a href="#">twitter</a></li>
+                  <li class="ms-ico-gp"><a href="#">google+</a></li>
+                  <li class="ms-ico-yt"><a href="#">youtube</a></li>
+                </ul>
+              </div>            
+          </div>
+          <div class="ms-slide">
+              <img src="../masterslider/blank.gif" data-src="img/5.jpg" alt="lorem ipsum dolor sit"/>
+               <div class="ms-info">
+                <h3>JOSEPH B. SEWARD</h3>
+                <h4>DEVELOPER</h4>
+                <p class="email">E-Mail: <a href="#">josephbseward@teleworm.us</a></p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+                <ul class="ms-socials">
+                  <li class="ms-ico-fb"><a href="#">facebook</a></li>
+                  <li class="ms-ico-tw"><a href="#">twitter</a></li>
+                  <li class="ms-ico-gp"><a href="#">google+</a></li>
+                  <li class="ms-ico-yt"><a href="#">youtube</a></li>
+                </ul>
+              </div>              
+          </div>
+          <div class="ms-slide">
+              <img src="../masterslider/blank.gif" data-src="img/6.jpg" alt="lorem ipsum dolor sit"/>
+               <div class="ms-info">
+                <h3>JANE LOPEZ</h3>
+                <h4>COMPANY CEO</h4>
+                <p class="email">E-Mail: <a href="#">janeplopez@rhyta.com</a></p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+                <ul class="ms-socials">
+                  <li class="ms-ico-fb"><a href="#">facebook</a></li>
+                  <li class="ms-ico-tw"><a href="#">twitter</a></li>
+                  <li class="ms-ico-gp"><a href="#">google+</a></li>
+                  <li class="ms-ico-yt"><a href="#">youtube</a></li>
+                </ul>
+              </div>           
+          </div>
+          <div class="ms-slide">
+              <img src="../masterslider/blank.gif" data-src="img/7.jpg" alt="lorem ipsum dolor sit"/>  
+               <div class="ms-info">
+                <h3>JAMES RIDGWAY</h3>
+                <h4>IT MANAGER</h4>
+                <p class="email">E-Mail: <a href="#">jameslridgway@rhyta.com</a></p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+                <ul class="ms-socials">
+                  <li class="ms-ico-fb"><a href="#">facebook</a></li>
+                  <li class="ms-ico-tw"><a href="#">twitter</a></li>
+                  <li class="ms-ico-gp"><a href="#">google+</a></li>
+                  <li class="ms-ico-yt"><a href="#">youtube</a></li>
+                </ul>
+              </div>     
+          </div>
+           <div class="ms-slide">
+              <img src="../masterslider/blank.gif" data-src="img/8.jpg" alt="lorem ipsum dolor sit"/>  
+               <div class="ms-info">
+                <h3>PATRICIA BURNS</h3>
+                <h4>SYSTEM ADMIN</h4>
+                <p class="email">E-Mail: <a href="#">patriciaburns@dayrep.com</a></p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+                <ul class="ms-socials">
+                  <li class="ms-ico-fb"><a href="#">facebook</a></li>
+                  <li class="ms-ico-tw"><a href="#">twitter</a></li>
+                  <li class="ms-ico-gp"><a href="#">google+</a></li>
+                  <li class="ms-ico-yt"><a href="#">youtube</a></li>
+                </ul>
+              </div>     
+          </div>
+          <div class="ms-slide">
+              <img src="../masterslider/blank.gif" data-src="img/9.jpg" alt="lorem ipsum dolor sit"/>  
+               <div class="ms-info">
+                <h3>TERRY THOMPSON</h3>
+                <h4>REVIEWER</h4>
+                <p class="email">E-Mail: <a href="#">terrythompson@teleworm.us</a></p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+                <ul class="ms-socials">
+                  <li class="ms-ico-fb"><a href="#">facebook</a></li>
+                  <li class="ms-ico-tw"><a href="#">twitter</a></li>
+                  <li class="ms-ico-gp"><a href="#">google+</a></li>
+                  <li class="ms-ico-yt"><a href="#">youtube</a></li>
+                </ul>
+              </div>     
+          </div>
+      </div>
+    </ul>
+<script type="text/javascript"> 
+      var slider = new MasterSlider();
+    slider.setup('masterslider' , {
+      loop:true,
+      width:240,
+      height:240,
+      speed:20,
+      view:'flow',
+      preload:0,
+      space:0,
+      wheel:true
+    });
+    slider.control('arrows');
+    slider.control('slideinfo',{insertTo:'#staff-info'});
+
+    $('#myTab a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    });
+
+    SyntaxHighlighter.all();
+
+  </script>
+
+</div>
+

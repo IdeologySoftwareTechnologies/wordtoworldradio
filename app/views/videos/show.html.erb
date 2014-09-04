@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @video.name %>
-</p>
 
-<p>
-  <strong>Video:</strong>
-  <%= @video.video %>
-</p>
+<div class="video-player">
+  <%= render "shared/video" %>
+  </div>
+</div>
+<div class="col-md-8">
+    <div class="float">
 
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+  
+     <% @videos.each do |video| %>
+          <td><%= link_to image_tag(video.video_url(:thumb)), video_path(video)%></td>
+    <% end %>
+  </div>
+
+
+  
+
