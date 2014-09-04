@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @daily_bread.message %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @daily_bread.date %>
+</p>
+
+<%= link_to 'Edit', edit_daily_bread_path(@daily_bread) %> |
+<%= link_to 'Back', daily_breads_path %>
