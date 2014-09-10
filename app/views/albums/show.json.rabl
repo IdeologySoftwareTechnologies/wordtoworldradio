@@ -1,7 +1,4 @@
 
-	object @album
+	collection @audios
 
-	child(:audios) do
-		 attributes :name , :audio, :artist 
-	end
-
+		 attributes :name , :artist , :audio_url

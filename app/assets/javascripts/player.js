@@ -1,16 +1,28 @@
-$(document).ready(function(){
+$(window).load(function(){
   /* myplaylist= audio juke box, myplaylist2= radio, myplaylist3= video */
 
-$.ajax({ 
+/*$.ajax({ 
         type: 'GET',
         url:window.location.pathname ,
         dataType: "json",
         success: function(json){
           $.each(json.audios,function(index, audio){
             $.each(audio, function(index, audio) {
+              var w=JSON.stringify(audio)
+              alert(w)
               myPlaylist.add({title:(audio.name), m4a:(audio.audio.audio.url), artist:(audio.artist)});
               });
                  });
+              }
+           }); */
+$.ajax({ 
+        type: 'GET',
+        url:window.location ,
+        dataType: "json",
+        success: function(json){
+           $.each(json,function(data){ 
+            myPlaylist.add({title:$(this).attr("name"), artist:$(this).attr("artist"), m4a:$(this).attr("audio_url")});
+             });
               }
            });
 
@@ -20,6 +32,7 @@ $.getJSON("../audios.json",function(data){
           myPlaylist2.shuffle();
         })
          });
+
 
 $.ajax({ 
         type: 'GET',
@@ -36,12 +49,12 @@ $.ajax({
     $.ajax({ 
         type: 'GET',
         url:window.location.pathname ,
-        dataType: "html",
+        dataType: "json",
         success: function(json){
           alert("vanthidichi")
               }
            });
-  }); */
+  }); 
 
 /*$('.play').on("click",function(){
   $(this).each(function(){
@@ -60,6 +73,11 @@ $.ajax({
  $("#jquery_jplayer_1").bind($.jPlayer.event.setmedia, function(event) { 
   $("#jquery_jplayer_1").jPlayer("play");
     });
+
+ $("#jquery_jplayer_1").bind($.jPlayer.event.play, function(event) {
+    $('#current-track').empty();
+    $('#current-track').append(myPlaylist.playlist[myPlaylist.current].title) ;
+});
 
   $("#jquery_jplayer_3").bind($.jPlayer.event.setmedia, function(event) { 
   $("#jquery_jplayer_3").jPlayer("play");
@@ -132,6 +150,6 @@ $.ajax({
     $("#jplayer_inspector_2").jPlayerInspector({jPlayer:$("#jquery_jplayer_2")});
     $("#jplayer_inspector_3").jPlayerInspector({jPlayer:$("#jquery_jplayer_3")});
    
-})
+});
 
 

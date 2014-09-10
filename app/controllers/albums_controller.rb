@@ -10,20 +10,23 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
-        @album = Album.find(params[:id])
-
+    @album = Album.find(params[:id])
      if params[:search]
           @albums = Album.search(params[:search]).order("created_at DESC")
      else
           @albums = Album.paginate(:page => params[:page], :per_page => 12)
      end
 
-    # if params[:audio_ids]
+    if params[:audio_ids]
          #@album_id = Audio.where(id: params[:audio_ids]).where.not(album_id: nil).select(:album_id).pluck(:album_id).uniq[0]
-         #@album = Audio.find(params[:audio_ids])
+         # @audios = Audio.find(params[:audio_ids])
+         
+         @audios = @album.audios.where(id: params[:audio_ids] )
+    else
+ 
+        @audios = @album.audios.all
+    end
 
-        # render json: @album
-     #end
   end
 
   # GET /albums/new
