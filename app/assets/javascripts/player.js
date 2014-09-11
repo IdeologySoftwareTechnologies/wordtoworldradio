@@ -143,7 +143,7 @@ $.ajax({
 },
     supplied: "mp4,m4v",
     preload: "auto",
-   size: {width: "100%", height: "100%"}
+   swfPath:"/scripts/banana.swf"
   });
 
    $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});

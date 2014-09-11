@@ -85,7 +85,7 @@ div.jp-video-full div.jp-interface {
 div.jp-interface {
 	position: relative;
 	width:100%;
-	background-color:#823132;
+	background-color:inherit;
 }
 
 div.jp-audio div.jp-type-single div.jp-interface {

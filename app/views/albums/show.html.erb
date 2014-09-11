@@ -5,12 +5,25 @@
       .img-responsive:hover{
        }
     .table {
-        width:40%;
+        width:60%;
         background-color: #656571;
         margin-left: 20%;
       }
 </style>
 <br>
+
+<div class="row" >
+  <div class="col-md-4">
+  </div>
+      <% @albums.each do |album|  %>
+        <div class="col-lg-2 col-md-2 col-xs-6 ">
+            <a class="thumbnail" href="<%= album_path(album) %>">
+              <%= image_tag album.cover_url , :class => "img-responsive" %></a>
+        </div>
+      <% end %>
+      </div>
+
+
 
 <div class="row" >
   <div id="current">
@@ -57,7 +70,6 @@
  <div class="row">
   <div class="col-md-6">
     <div class="table-responsive"> 
-        
         <table class="table table-condensed">
          <%= form_tag album_path , method: :get do  %>
             <thead>
@@ -67,13 +79,17 @@
             </tr>
                 <tr>
                   <th></th>
+                  <th></th>
                     <th>Name</th>
                     <th>Artist</th>
                 </tr>
             </thead>
+              <% i = 0%>
              <% @album.audios.each do  |audio| %>
+             <% i=i+1 %>
             <tbody>
                 <tr>
+                    <td>  <%= p i %></td>
                     <td> <%= check_box_tag "audio_ids[]",audio.id , false %></td>
                     <td>  <%= audio.name %></td>
                     <td> <%= audio.artist %></td>
@@ -82,8 +98,9 @@
             <% end %>
         <% end %>
         </table>
+     </div>
     </div>
-    </div>
+
 
    <div class="col-md-6">
      <div class="playlist"> 
@@ -93,18 +110,8 @@
 </div> 
 
 
-  <div class="col-md-4">
-  </div>
-      <% @albums.each do |album|  %>
-        <div class="col-lg-2 col-md-2 col-xs-6 ">
-            <a class="thumbnail" href="<%= album_path(album) %>">
-              <%= image_tag album.cover_url , :class => "img-responsive" %></a>
-        </div>
-      <% end %>
 
-      <div class="col-md-4">
-  <%= render 'slider' %>
-</div>
+
 
 
 
@@ -162,6 +169,12 @@
     allowPageScroll: 'vertical'
 });
 </script>
+
+<div class="row" >
+<div class="col-md-4">
+  <%= render 'slider' %>
+</div>
+</div>
 
 
 
