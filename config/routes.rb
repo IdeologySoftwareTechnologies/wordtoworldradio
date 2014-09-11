@@ -1,5 +1,7 @@
 
 Rails.application.routes.draw do
+  get 'radio/index'
+
   resources :audios 
 
   resources :albums do
