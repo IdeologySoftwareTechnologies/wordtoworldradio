@@ -13,41 +13,20 @@
 .bar
 {
 	
-	border-radius:50px 50px 50px 50px;
-	background-color:#823132;
-	margin:15px;
-	padding:15px;
-	height:70px;
-	background-color: #0000ff;
-	background-color: #0000ff;
-	border: 1px solid #000508;
-	-moz-border-radius: 50px;
-	-webkit-border-radius: 50px;
-	border-radius: 50px;
-	/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
-	-moz-box-shadow: 0px 0px 5px #000000;
-	-webkit-box-shadow: 0px 0px 5px #000000;
-	box-shadow: 0px 0px 5px #000000;
-	/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#1f1d35', endColorstr = '#407d72');
-	/*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
-	/*Element must have a height (not auto)*/
-	/*All filters must be placed together*/
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#1f1d35', endColorstr = '#407d72')";
-	/*Element must have a height (not auto)*/
-	/*All filters must be placed together*/
-	background-image: -moz-linear-gradient(top, #1f1d35, #407d72);
-	background-image: -ms-linear-gradient(top, #1f1d35, #407d72);
-	background-image: -o-linear-gradient(top, #1f1d35, #407d72);
-	background-image: -webkit-gradient(linear, center top, center bottom, from(#1f1d35), to(#407d72));
-	background-image: -webkit-linear-gradient(top, #1f1d35, #407d72);
-	background-image: linear-gradient(top, #1f1d35, #407d72);
-	-moz-background-clip: padding;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
-	/*Use "background-clip: padding-box" when using rounded corners to avoid the gradient bleeding through the corners*/
-	/*--IE9 WILL PLACE THE FILTER ON TOP OF THE ROUNDED CORNERS--*/
-
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 60px;
+  padding:13px;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #656571;
+  border: 0;
+  cursor: pointer;
+  height:70px;
+  box-shadow: inset 0 -2px #e2b607;
 
 }
 .current-text
@@ -67,40 +46,20 @@
 .bar-sm
 {
 	
-	border-radius:50px 50px 50px 50px;
-	background-color:#823132;
-	margin:15px;
-	padding:15px;
-	height:70px;
-	background-color: #0000ff;
-	background-color: #0000ff;
-	border: 1px solid #000508;
-	-moz-border-radius: 50px;
-	-webkit-border-radius: 50px;
-	border-radius: 50px;
-	/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
-	-moz-box-shadow: 0px 0px 5px #000000;
-	-webkit-box-shadow: 0px 0px 5px #000000;
-	box-shadow: 0px 0px 5px #000000;
-	/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#1f1d35', endColorstr = '#407d72');
-	/*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
-	/*Element must have a height (not auto)*/
-	/*All filters must be placed together*/
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#1f1d35', endColorstr = '#407d72')";
-	/*Element must have a height (not auto)*/
-	/*All filters must be placed together*/
-	background-image: -moz-linear-gradient(top, #1f1d35, #407d72);
-	background-image: -ms-linear-gradient(top, #1f1d35, #407d72);
-	background-image: -o-linear-gradient(top, #1f1d35, #407d72);
-	background-image: -webkit-gradient(linear, center top, center bottom, from(#1f1d35), to(#407d72));
-	background-image: -webkit-linear-gradient(top, #1f1d35, #407d72);
-	background-image: linear-gradient(top, #1f1d35, #407d72);
-	-moz-background-clip: padding;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
-	/*Use "background-clip: padding-box" when using rounded corners to avoid the gradient bleeding through the corners*/
-	/*--IE9 WILL PLACE THE FILTER ON TOP OF THE ROUNDED CORNERS--*/
+	position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 60px;
+  padding:13px;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #656571;
+  border: 0;
+  cursor: pointer;
+  height:70px;
+  box-shadow: inset 0 -2px #e2b607;
 
 
 }
@@ -134,11 +93,12 @@ nav.share iframe {border:0; margin-top:0; padding-top:0;} /* if using medium siz
 #current-track
 {
 	margin-left:40%;
-	  color: #161616;
-text-overflow: ellipsis;
+	 color: #161616;
+	text-overflow: ellipsis;
 
-  /* Required for text-overflow to do anything */
-  white-space: nowrap;
-  overflow: hidden;
-font-size:20px;
+   /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+    font-size:20px;
 }
+

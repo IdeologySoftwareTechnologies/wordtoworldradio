@@ -7,6 +7,7 @@
 #  cover      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  banner     :string(255)
 #
 
 require 'rails_helper'

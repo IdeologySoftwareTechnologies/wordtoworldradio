@@ -1,7 +1,7 @@
 <h1>Listing albums</h1>
 <div class="float">
       <% @albums.each do |album| %>
-         <td><%= link_to image_tag(album.cover_url(:thumb)), album_path(album) %></td>
+         <td><%= link_to image_tag(album.cover_url), album_path(album) %></td>
     <% end %>
    
 

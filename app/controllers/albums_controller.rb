@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:edit, :update, :destroy]
 
+
   # GET /albums
   # GET /albums.json
   def index
@@ -14,7 +15,8 @@ class AlbumsController < ApplicationController
      if params[:search]
           @albums = Album.search(params[:search]).order("created_at DESC")
      else
-          @albums = Album.paginate(:page => params[:page], :per_page => 12)
+         # @albums = Album.paginate(:page => params[:page], :per_page => 12)
+         @albums = Album.all
      end
 
     if params[:audio_ids]
@@ -26,6 +28,8 @@ class AlbumsController < ApplicationController
  
         @audios = @album.audios.all
     end
+     
+
 
   end
 
@@ -89,6 +93,6 @@ class AlbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
-      params.require(:album).permit(:name, :cover)
+      params.require(:album).permit(:name, :cover, :banner)
     end
 end

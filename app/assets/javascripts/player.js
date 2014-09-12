@@ -99,10 +99,8 @@ $.ajax({
 
 },
     supplied: "m4a,ogg,mp3",
-    preload: "auto",
+    preload: "auto"
     
-
-
   });
 
   var myPlaylist2 = new jPlayerPlaylist({
@@ -142,8 +140,7 @@ $.ajax({
     autoPlay: true,
 },
     supplied: "mp4,m4v",
-    preload: "auto",
-   swfPath:"/scripts/banana.swf"
+    preload: "auto"
   });
 
    $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
