@@ -85,7 +85,7 @@ div.jp-video-full div.jp-interface {
 div.jp-interface {
 	position: relative;
 	width:100%;
-	background-color:inherit;
+	background-color:#46454f;
 }
 
 div.jp-audio div.jp-type-single div.jp-interface {
@@ -107,11 +107,11 @@ div.jp-video div.jp-interface {
 
 div.jp-controls-holder {
 	clear: both;
-	width:83%;
+	width:141%;
 	margin:0 auto;
 	position: relative;
 	overflow:hidden;
-	top:8px; /* This negative value depends on the size of the text in jp-currentTime and jp-duration */
+	top:-7px; /* This negative value depends on the size of the text in jp-currentTime and jp-duration */
 }
 
 div.jp-interface ul.jp-controls {

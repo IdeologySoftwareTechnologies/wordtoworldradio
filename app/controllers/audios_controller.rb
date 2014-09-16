@@ -1,4 +1,5 @@
 class AudiosController < ApplicationController
+	   before_filter :loged_in?, :only => [:new,:create, :edit, :destroy]
 
 	def index
 		@audios=Audio.all
@@ -17,4 +18,7 @@ class AudiosController < ApplicationController
 		def audio_params
 			params.require(:audio).permit(:name,:audio,:album_id, :artist)
 		end
+	def loged_in?
+      redirect_to root_path
+    end
 end

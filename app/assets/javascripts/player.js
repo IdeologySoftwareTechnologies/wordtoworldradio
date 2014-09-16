@@ -1,4 +1,4 @@
-$(window).load(function(){
+$(document).ready(function(){
   /* myplaylist= audio juke box, myplaylist2= radio, myplaylist3= video */
 
 /*$.ajax({ 
@@ -99,8 +99,8 @@ $.ajax({
 
 },
     supplied: "m4a,ogg,mp3",
-    preload: "auto"
-    
+    preload: "auto",
+   solution: "html,flash",
   });
 
   var myPlaylist2 = new jPlayerPlaylist({
@@ -140,7 +140,11 @@ $.ajax({
     autoPlay: true,
 },
     supplied: "mp4,m4v",
-    preload: "auto"
+    preload: "auto",
+    size: {
+                         width: "640px",
+                         height: "420px"
+                    }
   });
 
    $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});

@@ -50,12 +50,13 @@
         </li>
 
         <% else %>
-         <li><%= link_to "bread" , daily_breads_path %></li>
-          <li><%= link_to "albums" , albums_path %></li>
-           <li><%= link_to "videos" , videos_path %></li>
+         
 
         <li><%= link_to "Sign In" , rails_admin_path %></li>
         <% end %>
+        <li><%= link_to "bread" , daily_breads_path %></li>
+                <li><%= link_to "albums" , albums_path %></li>
+           <li><%= link_to "videos" , videos_path %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

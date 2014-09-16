@@ -1,5 +1,6 @@
 class DailyBreadsController < ApplicationController
   before_action :set_daily_bread, only: [:show, :edit, :update, :destroy]
+     before_filter :loged_in?, :only => [:new,:create, :edit, :destroy]
 
   # GET /DailyBreads
   # GET /DailyBreads.json
@@ -82,5 +83,8 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def daily_bread_params
      params.require(:daily_bread).permit(:message, :date)
+    end
+    def loged_in?
+      redirect_to root_path
     end
 end

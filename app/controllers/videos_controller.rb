@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+   before_filter :loged_in?, :only => [:new,:create, :edit, :destroy]
 
   # GET /videos
   # GET /videos.json
@@ -79,5 +80,8 @@ class VideosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
       params.require(:video).permit(:name, :video)
+    end
+    def loged_in?
+      redirect_to root_path
     end
 end

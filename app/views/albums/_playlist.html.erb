@@ -1,5 +1,51 @@
+<style type="text/css">
+    .table {
+        width:100%;
+        background-color: #656571;
+      }
+      .playlist
+      {
+        margin-left: 118px;
+        width:100%;
+      }
+</style>
 
-     <div id="jp_container_1" class="demo-container">
+<div class="row playlist visible-lg visible-md">
+  <div class="col-md-4">
+    <div class="table-responsive"> 
+        <table class="table table-condensed">
+         <%= form_tag album_path , method: :get do  %>
+            <thead>
+            <tr>
+                <td><%= submit_tag "play", name: nil, :class => "btn btn-success " %></td>
+                <td><%= link_to "PlayAll", album_path , :class => "btn btn-success "%></td>
+            </tr>
+                <tr>
+                  <th></th>
+                  <th></th>
+                    <th>Name</th>
+                    <th>Artist</th>
+                </tr>
+            </thead>
+              <% i = 0%>
+             <% @album.audios.each do  |audio| %>
+             <% i=i+1 %>
+            <tbody>
+                <tr>
+                    <td>  <%= p i %></td>
+                    <td> <%= check_box_tag "audio_ids[]",audio.id %></td>
+                    <td>  <%= audio.name %></td>
+                    <td> <%= audio.artist %></td>
+                </tr>
+            </tbody>
+            <% end %>
+        <% end %>
+        </table>
+     </div>
+    </div>
+   <div class="col-md-4">
+     <div class="playlist"> 
+           <div id="jp_container_1" class="demo-container">
         <div class="jp-type-playlist">
        <div class="jp-playlist">
           <ul>
@@ -10,4 +56,55 @@
   </div>
   </div>
 
-    
+    </div>
+  </div>
+</div> 
+
+ <div class="row playlist2 visible-sm visible-xs ">
+  <div class="col-md-4">
+    <div class="table-responsive"> 
+        <table class="table table-condensed">
+         <%= form_tag album_path , method: :get do  %>
+            <thead>
+            <tr>
+                <td><%= submit_tag "play", name: nil, :class => "btn btn-success " %></td>
+                <td><%= link_to "PlayAll", album_path , :class => "btn btn-success "%></td>
+            </tr>
+                <tr>
+                  <th></th>
+                  <th></th>
+                    <th>Name</th>
+                    <th>Artist</th>
+                </tr>
+            </thead>
+              <% i = 0%>
+             <% @album.audios.each do  |audio| %>
+             <% i=i+1 %>
+            <tbody>
+                <tr>
+                    <td>  <%= p i %></td>
+                    <td> <%= check_box_tag "audio_ids[]",audio.id  %></td>
+                    <td>  <%= audio.name %></td>
+                    <td> <%= audio.artist %></td>
+                </tr>
+            </tbody>
+            <% end %>
+        <% end %>
+        </table>
+     </div>
+    </div>
+   <div class="col-md-4">
+     <div class="playlist2"> 
+           <div id="jp_container_1" class="demo-container">
+        <div class="jp-type-playlist">
+       <div class="jp-playlist">
+          <ul>
+            <!-- The method Playlist.displayPlaylist() uses this unordered list -->
+            <li></li>
+          </ul>
+        </div>
+  </div>
+  </div>
+    </div>
+  </div>
+</div> 

@@ -27,7 +27,7 @@ gem 'carrierwave-video'
 gem 'jquery-turbolinks'
 gem 'carrierwave-video-thumbnailer'
 gem 'rmagick'
-
+gem 'shareable'
 
 group :development do
   gem 'spring'

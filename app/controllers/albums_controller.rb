@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:edit, :update, :destroy]
+  before_filter :loged_in?, :only => [:new,:create, :edit, :destroy]
 
 
   # GET /albums
@@ -94,5 +95,8 @@ class AlbumsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
       params.require(:album).permit(:name, :cover, :banner)
+    end
+    def loged_in?
+      redirect_to root_path
     end
 end

@@ -4,14 +4,6 @@
    body { background-color: #EBC053; }
       .img-responsive:hover{
        }
-    .table {
-        width:100%;
-        background-color: #656571;
-      }
-      .playlist
-      {
-        margin-left: 118px;
-      }
 </style>
 <br>
 
@@ -20,10 +12,14 @@
       <% @albums.each do |album|  %>
         <div class="col-lg-2 col-md-2 col-xs-6 ">
             <a class="thumbnail" href="<%= album_path(album) %>">
-              <%= image_tag album.cover_url , :class => "img-responsive" %></a>
-        </div>
-      <% end %>
+              <%= image_tag album.cover_url , :class => "img-responsive" %>
+                <center>
+                <%= album.name %>
+            </center>
+            </a>
       </div>
+  <% end %>
+</div>
 
 
 <div class="search-form">
@@ -84,45 +80,8 @@
   </div>
 </div>
 
- <div class="row playlist">
-  <div class="col-md-4">
-    <div class="table-responsive"> 
-        <table class="table table-condensed">
-         <%= form_tag album_path , method: :get do  %>
-            <thead>
-            <tr>
-                <td><%= submit_tag "play", name: nil, :class => "btn btn-success " %></td>
-                <td><%= link_to "PlayAll", album_path , :class => "btn btn-success "%></td>
-            </tr>
-                <tr>
-                  <th></th>
-                  <th></th>
-                    <th>Name</th>
-                    <th>Artist</th>
-                </tr>
-            </thead>
-              <% i = 0%>
-             <% @album.audios.each do  |audio| %>
-             <% i=i+1 %>
-            <tbody>
-                <tr>
-                    <td>  <%= p i %></td>
-                    <td> <%= check_box_tag "audio_ids[]",audio.id , false %></td>
-                    <td>  <%= audio.name %></td>
-                    <td> <%= audio.artist %></td>
-                </tr>
-            </tbody>
-            <% end %>
-        <% end %>
-        </table>
-     </div>
-    </div>
-   <div class="col-md-4">
-     <div class="playlist"> 
-      <%= render 'playlist'%>
-    </div>
-  </div>
-</div> 
+
+<%= render "playlist" %>
 
 
 
@@ -138,7 +97,7 @@
       </div>
 </div>
  <%#= will_paginate @albums,renderer: BootstrapPagination::Rails, :page_links => false %>
-<%#= render_shareable  %>
+<%= render_shareable  %>
 
 
 <!-- 
