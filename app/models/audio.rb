@@ -18,4 +18,8 @@ class Audio < ActiveRecord::Base
 	 def self.search(query)
    	 where("name like ?", "%#{query}%") 
  	 end	
+
+ 	 validates :artist, :presence => true
+ 	 validates :audio, :presence => true
+ 	 validates :name, :presence => true
 end

@@ -19,4 +19,7 @@ class Album < ActiveRecord::Base
    	 # where(:title, query) -> This would return an exact match of the query
    	 where("name like ?", "%#{query}%") 
  	 end
+ 	 validates :cover, :presence => true
+ 	 validates :banner, :presence => true
+ 	 validates :name, :presence => true
 end
