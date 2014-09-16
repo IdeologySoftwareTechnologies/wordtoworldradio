@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bible.name %>
+</p>
+
+<p>
+  <strong>Bible cover:</strong>
+  <%= @bible.bible_cover %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @bible.admin %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @bible.status %>
+</p>
+
+<%= link_to 'Edit', edit_bible_path(@bible) %> |
+<%= link_to 'Back', bibles_path %>

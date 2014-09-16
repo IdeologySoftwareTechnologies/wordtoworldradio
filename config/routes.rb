@@ -1,5 +1,11 @@
 
 Rails.application.routes.draw do
+  
+
+  resources :bibles do
+    resources :chapters
+  end
+
   resources :audios 
 
   resources :albums do
