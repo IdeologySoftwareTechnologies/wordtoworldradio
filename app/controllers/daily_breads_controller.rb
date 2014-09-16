@@ -1,4 +1,4 @@
-class DailyBreadsController < ApplicationController
+  class DailyBreadsController < ApplicationController
   before_action :set_daily_bread, only: [:show, :edit, :update, :destroy]
      before_filter :loged_in?, :only => [:new,:create, :edit, :destroy]
 

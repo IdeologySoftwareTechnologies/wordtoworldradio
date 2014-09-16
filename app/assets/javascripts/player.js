@@ -44,6 +44,16 @@ $.ajax({
              });
               }
            });
+$.ajax({ 
+        type: 'GET',
+        url:window.location ,
+        dataType: "json",
+        success: function(json){
+           $.each(json,function(data){ 
+            myPlaylist4.add({m4a:$(this).attr("audio_url")});
+             });
+              }
+           });
 
 /*$('.play').on("click",function(){
     $.ajax({ 
@@ -82,12 +92,17 @@ $.ajax({
   $("#jquery_jplayer_3").bind($.jPlayer.event.setmedia, function(event) { 
   $("#jquery_jplayer_3").jPlayer("play");
     });
+   $("#jquery_jplayer_4").bind($.jPlayer.event.setmedia, function(event) { 
+  $("#jquery_jplayer_4").jPlayer("play");
+    });
+
+
   var myPlaylist = new jPlayerPlaylist({
   jPlayer: "#jquery_jplayer_1",
   cssSelectorAncestor: "#jp_container_1"
   }, 
   [
-   
+ 
   ], 
 {
     playlistOptions: {
@@ -147,9 +162,30 @@ $.ajax({
                     }
   });
 
+
+
+  var myPlaylist4 = new jPlayerPlaylist({
+  jPlayer: "#jquery_jplayer_4",
+  cssSelectorAncestor: "#jp_container_4"
+  }, 
+  [
+ 
+   
+  ], 
+{
+    playlistOptions: {
+    autoPlay: true,
+},
+    supplied: "mp3,m4a",
+    preload: "auto",
+  });
+
+
+
    $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
     $("#jplayer_inspector_2").jPlayerInspector({jPlayer:$("#jquery_jplayer_2")});
     $("#jplayer_inspector_3").jPlayerInspector({jPlayer:$("#jquery_jplayer_3")});
+    $("#jplayer_inspector_4").jPlayerInspector({jPlayer:$("#jquery_jplayer_4")});
    
 });
 
