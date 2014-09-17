@@ -28,6 +28,8 @@ gem 'jquery-turbolinks'
 gem 'carrierwave-video-thumbnailer'
 gem 'rmagick'
 gem 'shareable'
+gem 'closure_tree'
+
 
 group :development do
   gem 'spring'
