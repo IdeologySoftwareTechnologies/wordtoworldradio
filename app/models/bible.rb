@@ -21,4 +21,14 @@ class Bible < ActiveRecord::Base
 	has_many :chapters
   belongs_to :admin
   mount_uploader :bible_cover,BibleCoverUploader
+
+  def next
+    Bible.where("id > ?", self.id).order("id ASC").first || Bible.first 
+  end
+
+  def prev
+    Bible.where("id < ?", self.id).order("id DESC").first || Bible.last
+  end
+
+  
 end

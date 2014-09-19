@@ -1,24 +1,17 @@
 <p id="notice"><%= notice %></p>
+<div>
+  <%if @bible.chapters.count == 0 %>
+    <h3>No Chapters added in <%= @bible.name%></h3>
+  <% else %>
+    <table>
+      <% @bible.chapters.in_groups_of(4, false) do |row_chapter| %>
+      <tr>
+      	<% for chapter in row_chapter %>
+        <td>&nbsp;<%= link_to chapter.chapter_number ,bible_chapter_path(@bible,chapter)%></td>    
+        <% end %>
+      </tr>   
+      <% end %>
+    </table>
+  <%end%>
+</div><br/>
 
-<p>
-  <strong>Name:</strong>
-  <%= @bible.name %>
-</p>
-
-<p>
-  <strong>Bible cover:</strong>
-  <%= @bible.bible_cover %>
-</p>
-
-<p>
-  <strong>Admin:</strong>
-  <%= @bible.admin %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @bible.status %>
-</p>
-
-<%= link_to 'Edit', edit_bible_path(@bible) %> |
-<%= link_to 'Back', bibles_path %>

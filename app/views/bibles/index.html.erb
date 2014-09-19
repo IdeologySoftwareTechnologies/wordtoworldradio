@@ -2,7 +2,7 @@
   <div class="col-md-2"></div>
   <div class="col-md-8">
       <div class="row">
-        <div class="col-md-8"> 
+        <div class="col-md-8 chapter"> 
           <h1>bibles</h1>          
             <table>            
               <tbody>
@@ -10,7 +10,7 @@
                       <tr>                      
                           <% for bible in row_bible %>
                             <% if bible.root?%>                                            
-                                <td>&nbsp;<%= link_to bible.name, bible,remote: true%>&nbsp;</td>                                                                   
+                                <td>&nbsp;<%= link_to bible.name, bible%>&nbsp;</td>                                                                   
                             <% end %>
                           <% end %>
                       </tr>
@@ -19,17 +19,23 @@
             </table>        
         </div>
         <div class="col-md-4">
-        
+        <h2>Chapters</h2>
+          <%= render 'recoment'%>
+ 
+
         </div>
       </div>
     </div>    
     <div class="col-md-2" >      
     </div>
 </div>
-<h2>Chapters</h2>
-          <%= render 'recoment'%>
-<%#= render 'chapters'%>
-<%#= render  "shared/showbible" %>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+<%#= image_tag "IMG-20140910-WA0003.jpg", class: "img-responsive" %>
+</div>
+<div class="col-md-2"></div>
+</div>
 
 
 
@@ -37,16 +43,3 @@
 
 
  
-    <%# @bibles.each do |bible| %>
-      <tr>
-        <td><%#= bible.name %></td>
-        <td><%#= bible.bible_cover %></td>
-        <td><%#= bible.admin %></td>
-        <td><%#= bible.status %></td>
-        <td><%#= link_to 'Show', bible %></td>
-        <td><%#= link_to 'Edit', edit_bible_path(bible) %></td>
-        <td><%#= link_to 'Destroy', bible, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <%# end %>
-
-
