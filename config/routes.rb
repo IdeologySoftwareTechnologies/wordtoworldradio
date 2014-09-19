@@ -2,6 +2,16 @@
 Rails.application.routes.draw do
   
 
+  
+  resources :news
+
+  get 'friends/new'
+
+  resources :mailbox  
+  
+  resources :friends  
+  resources :contacts 
+
   resources :bibles do
     resources :chapters
   end

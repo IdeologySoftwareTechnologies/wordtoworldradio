@@ -1,0 +1,14 @@
+<center><h1>News</h1></center>
+
+  
+    <% @news.each do |news| %>
+      <div class="list_contact">
+        <h4> <%= news.title %></h4>
+        <b><%= news.created_at.to_date %></b>
+        <p><%= news.content %></p> 
+      </div>
+    <% end %>
+  
+
+<br>
+
