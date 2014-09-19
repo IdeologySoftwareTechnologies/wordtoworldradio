@@ -1,0 +1,34 @@
+
+
+  <h3>Player requests</h3>
+    <% @prayerreq.each do |contact| %>
+
+      <div class="list_contact">
+      	<p> <%= contact.name %></p>
+      	<center> <%= contact.message %></center>
+      	<div align="right"> <%= contact.email %></div>
+      </div>
+      
+    <% end %>
+    <h3>Testimonials</h3>
+    <% @testimonials.each do |contact| %>
+     
+      <div class="list_contact">
+      	<p> <%= contact.name %></p>
+      	<center> <%= contact.message %></center>
+      	<div align="right"> <%= contact.email %></div>
+      </div>
+      
+    <% end %>
+    <h3>Feedback</h3>
+    <% @feedback.each do |contact| %>
+     
+      <div class="list_contact">
+      	<p> <%= contact.name %></p>
+      	<center> <%= contact.message %></center>
+      	<div align="right"> <%= contact.email %></div>
+      </div>
+      
+    <% end %>
+ 
+
