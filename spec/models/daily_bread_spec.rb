@@ -7,6 +7,7 @@
 #  date       :date
 #  created_at :datetime
 #  updated_at :datetime
+#  audio      :string(255)
 #
 
 require 'rails_helper'

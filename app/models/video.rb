@@ -15,4 +15,6 @@ class Video < ActiveRecord::Base
 	def set_success(format, opts)
     	self.success = true
     end
+     validates :name, :presence => true
+ 	 validates :video, :presence => true
 end

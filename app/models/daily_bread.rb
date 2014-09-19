@@ -7,9 +7,15 @@
 #  date       :date
 #  created_at :datetime
 #  updated_at :datetime
+#  audio      :string(255)
 #
 
 class DailyBread < ActiveRecord::Base
 	validates :date, uniqueness: true
 	mount_uploader :message, ImageUploader
+	mount_uploader :audio, BreadAudioUploader
+
+	 validates :date, :presence => true
+ 	 validates :audio, :presence => true
+ 	 validates :message, :presence => true
 end

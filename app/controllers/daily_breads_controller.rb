@@ -1,6 +1,7 @@
-class DailyBreadsController < ApplicationController
-  before_action :set_daily_bread, only: [:show, :edit, :update, :destroy]
+  class DailyBreadsController < ApplicationController
+     before_action :set_daily_bread, only: [:show, :edit, :update, :destroy]
      before_filter :loged_in?, :only => [:new,:create, :edit, :destroy]
+      before_filter :set_search
 
   # GET /DailyBreads
   # GET /DailyBreads.json
@@ -19,17 +20,18 @@ class DailyBreadsController < ApplicationController
 
   end
 
-  before_filter :set_search
+ 
 
-def set_search
-  @search=DailyBread.search(params[:q])
-end
-  # GET /DailyBreads/new
+  def set_search
+    @search=DailyBread.search(params[:q])
+  end
+
+
   def new
     @daily_bread = DailyBread.new
   end
 
-  # GET /DailyBreads/1/edit
+
   def edit
   end
 
