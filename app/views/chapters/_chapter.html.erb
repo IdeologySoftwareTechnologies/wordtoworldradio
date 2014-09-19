@@ -1,39 +1,34 @@
 <div class="row">
-	<div class="col-md-2 bible">		
-	</div>
-	<div class="col-md-1 ">
-	</div>
-	<div class="col-md-6 book">
-		<p id="notice"><%= notice %></p>
-		<center>
-		<h3>Chapters Of <%= chapter.bible.name%></h3>
-			<strong>Chapter number:</strong>
-		  <%= chapter.chapter_number %>
-		</center>
-		<p>
-		 <%#= link_to bible_chapter_path(@bible, @chapter.prev),remote: true,class: "btn btn-default" do %>		
-    		<i class="glyphicon glyphicon-chevron-left"></i>
-		<%# end %>
-		<%#= link_to bible_chapter_path(@bible, @chapter.next),remote: true,class: "btn btn-default pull-right" do %>	
-    		<i class="glyphicon glyphicon-chevron-right"></i>
-		<%# end %>		  
-		  <%#= image_tag @chapter.chapter_image_url, class: "img-responsive" %>
-		  <%#= link_to bible_chapter_path(@bible, @chapter.prev),remote: true,class: "btn btn-default" do %>		
-    		<i class="glyphicon glyphicon-chevron-left"></i>
-		<%# end %>
-		<%#= link_to bible_chapter_path(@bible, @chapter.next),remote: true,class: "btn btn-default pull-right" do %>	
-    		<i class="glyphicon glyphicon-chevron-right"></i>
-		<%# end %>
-		</p>
-		<p>		  
-		  <%#= audio_tag @chapter.chapter_audio %>
-		</p>		
-	</div>
-	<div class="col-md-1">
-	</div>
-	<div class="col-md-2">		
-	</div>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-8 chapter"> 
+          <h1>bibles</h1>          
+            <table>            
+              <tbody>
+                <% @bibles.in_groups_of(3, false) do |row_bible| %>                                    
+                      <tr>                      
+                          <% for bible in row_bible %>
+                            <% if bible.root?%>                                            
+                                <td>&nbsp;<%= link_to bible.name,bible%>&nbsp;</td>                                                                   
+                            <% end %>
+                          <% end %>
+                      </tr>
+                <% end %>
+              </tbody>
+            </table>        
+        </div>
+        <div class="col-md-4">
+        <h4>Chapters of <%= @bible.name%></h4>
+          
+
+
+          <%#= render 'bibles/recoment'%>
+          <%= render 'bibles/show'%>
+
+        </div>
+      </div>
+    </div>    
+    <div class="col-md-2" >      
+    </div>
 </div>
-
-
-

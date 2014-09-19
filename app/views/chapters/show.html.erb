@@ -1,3 +1,4 @@
+<%= render 'chapter'%>
 <div class="row">
   <div class="col-md-2 bible">    
   </div>
@@ -6,34 +7,71 @@
   <div class="col-md-6 book">
     <p id="notice"><%= notice %></p>
     <center>
-    <h3>Chapters Of <%#= @chapter.bible.name%></h3>
+    <h3>Chapters Of <%= @chapter.bible.name%></h3>
       <strong>Chapter number:</strong>
-      <%= @chapter.chapter_number %>
+      <%= @chapter.chapter_number%>
     </center>
-    <p>
-     <%= link_to bible_chapter_path(@bible, @chapter.prev),class: "btn btn-default" do %>    
-        <i class="glyphicon glyphicon-chevron-left"></i>
-    <% end %>
-    <%= link_to bible_chapter_path(@bible, @chapter.next),class: "btn btn-default pull-right" do %>  
-        <i class="glyphicon glyphicon-chevron-right"></i>
-    <% end %>     
-      <%= image_tag @chapter.chapter_image_url, class: "img-responsive" %>
+    <p> 
+      <%if @chapter.id == 1 || @chapter.id == 3 || @chapter.id == 5 ||  @chapter.id == 7 || @chapter.id == 10%>   
+         <%= link_to bible_chapter_path(@bible.prev, @chapter.prev),class: "btn btn-default" do %>
+         <i class="glyphicon glyphicon-chevron-left"></i>
+      <% end %>
+      <%else%>
       <%= link_to bible_chapter_path(@bible, @chapter.prev),class: "btn btn-default" do %>   
         <i class="glyphicon glyphicon-chevron-left"></i>
     <% end %>
-    <%= link_to bible_chapter_path(@bible, @chapter.next),class: "btn btn-default pull-right" do %>  
+    <%end%>
+
+        
+    <%if @chapter.id == 2 || @chapter.id == 4 ||  @chapter.id == 6 || @chapter.id == 9%>
+    
+
+    <%= link_to bible_chapter_path(@bible.next,@chapter.next),class: "btn btn-default pull-right" do %> 
         <i class="glyphicon glyphicon-chevron-right"></i>
+    <% end %>     
+      <%= image_tag @chapter.chapter_image_url, class: "img-responsive" %>
+      <%if @chapter.id == 3 || @chapter.id == 5 ||  @chapter.id == 7 || @chapter.id == 10%>   
+         <%= link_to bible_chapter_path(@bible.prev, @chapter.prev),class: "btn btn-default" do %>
+         <i class="glyphicon glyphicon-chevron-left"></i>
+      <% end %>
+      <%else%>
+      <%= link_to bible_chapter_path(@bible, @chapter.prev),class: "btn btn-default" do %>   
+        <i class="glyphicon glyphicon-chevron-left"></i>
     <% end %>
+    <%end%>
+    <%= link_to bible_chapter_path(@bible.next,@chapter.next),class: "btn btn-default pull-right" do %> 
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    <% end %> 
     </p>
     <p>     
       <%= audio_tag @chapter.chapter_audio %>
-    </p>    
+    </p>  
+    
+    <%else%> 
+
+      <%= link_to bible_chapter_path(@bible, @chapter.next),class: "btn btn-default pull-right" do %> 
+        <i class="glyphicon glyphicon-chevron-right"></i>
+      <% end %>
+         
+      <%= image_tag @chapter.chapter_image_url, class: "img-responsive" %>
+      <%if @chapter.id == 3 || @chapter.id == 5 ||  @chapter.id == 7 || @chapter.id == 10%>   
+         <%= link_to bible_chapter_path(@bible.prev, @chapter.prev),class: "btn btn-default" do %>
+         <i class="glyphicon glyphicon-chevron-left"></i>
+      <% end %>
+      <%else%>
+      <%= link_to bible_chapter_path(@bible, @chapter.prev),class: "btn btn-default" do %>   
+        <i class="glyphicon glyphicon-chevron-left"></i>
+    <% end %>
+    <%end%>
+
+    <%end%>
+
   </div>
   <div class="col-md-1">
   </div>
   <div class="col-md-2">    
   </div>
-</div>
+  </div>
 
 
 

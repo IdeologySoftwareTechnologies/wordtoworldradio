@@ -1,35 +1,14 @@
-<h1>Listing chapters</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Chapter number</th>
-      <th>Chapter image</th>
-      <th>Chapter audio</th>
-      <th>Bible</th>
-      <th>Admin</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @chapters.each do |chapter| %>
-      <tr>
-        <td><%= chapter.chapter_number %></td>
-        <td><%= chapter.chapter_image %></td>
-        <td><%= chapter.chapter_audio %></td>
-        <td><%= chapter.bible %></td>
-        <td><%= chapter.admin %></td>
-        <td><%= chapter.status %></td>
-        <td><%= link_to 'Show', chapter %></td>
-        <td><%= link_to 'Edit', edit_chapter_path(chapter) %></td>
-        <td><%= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Chapter', new_chapter_path %>
+<%= render 'chapter'%>
+<div class="row">
+  <div class="col-md-2 bible">    
+  </div>
+  <div class="col-md-1 ">
+  </div>
+  <div class="col-md-6 book">
+  	<%= image_tag "header-shell.png", class: "img-responsive" %>
+  </div>
+  <div class="col-md-1 ">
+  </div>
+  <div class="col-md-2 bible"> 
+  </div>
+</div>
