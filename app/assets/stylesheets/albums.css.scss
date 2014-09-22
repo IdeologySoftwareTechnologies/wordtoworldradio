@@ -91,3 +91,34 @@ nav.share iframe {border:0; margin-top:0; padding-top:0;} /* if using medium siz
 }
 
 
+   
+      #current-track-name
+      {
+        font-size: 20px;
+        background-color: #656571;
+        margin-left: 132px;
+        margin-right: 132px;
+      }
+      a:link {
+      color: white;
+    }
+
+    /* visited link */
+    a:visited {
+     color: white;
+    }
+
+    /* mouse over link */
+    a:hover {
+     color: white;
+    }
+
+  /* selected link */
+    a:active {
+    color: white;
+    }
+    th
+    {
+    color:#FFCC00
+;
+    }

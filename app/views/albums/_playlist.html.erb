@@ -1,17 +1,26 @@
 <style type="text/css">
     .table {
-        width:100%;
+        
         background-color: #656571;
+        color: white;
       }
-      .playlist
+   .playlist
       {
-        margin-left: 118px;
-        width:100%;
+        margin-left: 132px;
+        margin-right: 132px;
       }
 </style>
 
+
+  <div id="current-track-name">
+    <marquee scrollamount="8">
+      <div id="current-track">
+      </div>
+    </marquee>
+  </div>
+
+
 <div class="row playlist visible-lg visible-md">
-  <div class="col-md-4">
     <div class="table-responsive"> 
         <table class="table table-condensed">
          <%= form_tag album_path , method: :get do  %>
@@ -25,27 +34,30 @@
                   <th></th>
                   <th>Name</th>
                   <th>Artist</th>
+                  <th>Duration</th>
+                  <th>Size</th>
               </tr>
             </thead>
             <% i = 0%>
-            
+            <tbody>
             <%  @album.audios.each do |audio| %>
               <% i=i+1 %>
-                <tbody>
+                
                   <tr>
                     <td>  <%= p i %></td>
                     <td > <%#= check_box_tag "audio_ids",audio.id,false  %>
                     <input  type="checkbox" id="audio_ids_<%= audio.id %>" name="audio_ids[]" value="<%= audio.id %>">
                     </td>
-
                     <td>  <%= link_to audio.name, album_path(id: @album.id, audio_ids: audio) %></td>
                     <td> <%= audio.artist %></td>
+                     <td> 5 Minutes </td>
+                      <td>  4.2 Mb</td>
                   </tr>
-                </tbody>
-            <% end %>
+                <% end %>
+             </tbody>
         <% end %>
       </table>
-    </div>
+
   </div>
 
 <div class="col-md-4">
@@ -66,34 +78,50 @@
 </div> 
 
  <div class="row playlist2 visible-sm visible-xs ">
+ <div class="row">
+  <div id="current-track-name">
+    <marquee scrollamount="8">
+      <div id="current-track">
+      </div>
+    </marquee>
+  </div>
+</div>
+
   <div class="col-md-4">
     <div class="table-responsive"> 
         <table class="table table-condensed">
-         <%= form_tag album_path , method: :get do  %>
+        <%= form_tag album_path , method: :get do  %>
             <thead>
-            <tr>
-                <td><%= submit_tag "play", name: nil, :class => "btn btn-success " %></td>
-                <td><%= link_to "PlayAll", album_path , :class => "btn btn-success "%></td>
-            </tr>
-                <tr>
+              <tr>
+                  <td><%= submit_tag "play", name: nil, :class => "btn btn-success " %></td>
+                  <td><%= link_to "PlayAll", album_path , :class => "btn btn-success "%></td>
+              </tr>
+              <tr>
                   <th></th>
                   <th></th>
-                    <th>Name</th>
-                    <th>Artist</th>
-                </tr>
+                  <th>Name</th>
+                  <th>Artist</th>
+                  <th>Duration</th>
+                  <th>Size</th>
+              </tr>
             </thead>
-              <% i = 0%>
-             <% @album.audios.each do  |audio| %>
-             <% i=i+1 %>
+            <% i = 0%>
             <tbody>
-                <tr>
+            <%  @album.audios.each do |audio| %>
+              <% i=i+1 %>
+                
+                  <tr>
                     <td>  <%= p i %></td>
-                    <td> <%= check_box_tag "audio_ids[]", nil,audio.id %></td>
-                    <td>  <%= audio.name %></td>
+                    <td > <%#= check_box_tag "audio_ids",audio.id,false  %>
+                    <input  type="checkbox" id="audio_ids_<%= audio.id %>" name="audio_ids[]" value="<%= audio.id %>">
+                    </td>
+                    <td>  <%= link_to audio.name, album_path(id: @album.id, audio_ids: audio) %></td>
                     <td> <%= audio.artist %></td>
-                </tr>
-            </tbody>
-            <% end %>
+                     <td> 5 Minutes </td>
+                      <td>  4.2 Mb</td>
+                  </tr>
+                <% end %>
+             </tbody>
         <% end %>
         </table>
      </div>
@@ -103,10 +131,10 @@
            <div id="jp_container_1" class="demo-container">
         <div class="jp-type-playlist">
        <div class="jp-playlist">
-          <ul>
-            <!-- The method Playlist.displayPlaylist() uses this unordered list -->
+          <!--<ul>
+           The method Playlist.displayPlaylist() uses this unordered list
             <li></li>
-          </ul>
+          </ul> -->
         </div>
   </div>
   </div>

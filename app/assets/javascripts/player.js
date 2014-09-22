@@ -2,16 +2,7 @@ $(function(){
 
  
 
-$.ajax({ 
-        type: 'GET',
-        url:window.location ,
-        dataType: "json",
-        success: function(json){
-           $.each(json,function(data){
-              document.getElementById("audio_ids_"+this.id).checked = true;
-           });
-              }
-});
+
 // playlist buttons
 
   /* myplaylist= audio juke box, myplaylist2= radio, myplaylist3= video */
@@ -70,6 +61,16 @@ $.ajax({
               }
            });
 
+$.ajax({ 
+        type: 'GET',
+        url:window.location ,
+        dataType: "json",
+        success: function(json){
+           $.each(json,function(data){
+              document.getElementById("audio_ids_"+this.id).checked = true;
+           });
+              }
+});
 /*$('.play').on("click",function(){
     $.ajax({ 
         type: 'GET',
@@ -201,6 +202,7 @@ $.ajax({
     $("#jplayer_inspector_2").jPlayerInspector({jPlayer:$("#jquery_jplayer_2")});
     $("#jplayer_inspector_3").jPlayerInspector({jPlayer:$("#jquery_jplayer_3")});
     $("#jplayer_inspector_4").jPlayerInspector({jPlayer:$("#jquery_jplayer_4")});
+
    
 });
 
