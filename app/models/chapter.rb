@@ -25,7 +25,7 @@ class Chapter < ActiveRecord::Base
   mount_uploader :chapter_audio,ChapterAudioUploader
   
   def next
-    Chapter.where("id > ?", self.id).order("id ASC").first || Chapter.first
+    Chapter.where("id > ?", self.id).order("id ASC").first || Chapter.first 
   end
 
   def prev

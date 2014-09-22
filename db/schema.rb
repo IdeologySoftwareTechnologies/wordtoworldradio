@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916080147) do
+ActiveRecord::Schema.define(version: 20140919101829) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -92,12 +92,40 @@ ActiveRecord::Schema.define(version: 20140916080147) do
   add_index "chapters", ["admin_id"], name: "index_chapters_on_admin_id"
   add_index "chapters", ["bible_id"], name: "index_chapters_on_bible_id"
 
+  create_table "contacts", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "message"
+    t.integer  "contacttype"
+    t.boolean  "approval"
+    t.boolean  "status"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contacts", ["admin_id"], name: "index_contacts_on_admin_id"
+
   create_table "daily_breads", force: true do |t|
     t.string   "message"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "audio"
+  end
+
+  create_table "friends", force: true do |t|
+    t.string   "name"
+    t.string   "friend_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "videos", force: true do |t|

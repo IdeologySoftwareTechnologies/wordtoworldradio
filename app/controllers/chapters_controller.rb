@@ -6,15 +6,20 @@ class ChaptersController < ApplicationController
   def index
     @chapters = Chapter.all
     @bible = Bible.find(params[:bible_id])
+     @bibles = Bible.all
+      
   end
 
   # GET /chapters/1
   # GET /chapters/1.json
   def show
-   
+   @bibles = Bible.all
     
     @bible = Bible.find(params[:bible_id])
     
+     @chapters = Chapter.all
+
+
   end
 
   # GET /chapters/new
