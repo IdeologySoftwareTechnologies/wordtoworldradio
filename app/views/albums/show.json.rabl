@@ -1,4 +1,2 @@
-
-	collection @audios
-
-		 attributes :name , :artist , :audio_url
+collection @audios
+		 attributes :name , :artist , :audio_url , :id

@@ -3,6 +3,7 @@ class AlbumsController < ApplicationController
   before_filter :loged_in?, :only => [:new,:create, :edit, :destroy]
 
 
+  
   # GET /albums
   # GET /albums.json
   def index
@@ -12,7 +13,8 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
-    @album = Album.find(params[:id])
+       @album = Album.find(params[:id])
+
      if params[:search]
           @albums = Album.search(params[:search]).order("created_at DESC")
      else
@@ -29,8 +31,10 @@ class AlbumsController < ApplicationController
  
         @audios = @album.audios.all
     end
-     
+    
+  end
 
+  def box
 
   end
 

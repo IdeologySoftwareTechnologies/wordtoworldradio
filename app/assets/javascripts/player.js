@@ -1,4 +1,19 @@
-$(document).ready(function(){
+$(function(){
+
+ 
+
+$.ajax({ 
+        type: 'GET',
+        url:window.location ,
+        dataType: "json",
+        success: function(json){
+           $.each(json,function(data){
+              document.getElementById("audio_ids_"+this.id).checked = true;
+           });
+              }
+});
+// playlist buttons
+
   /* myplaylist= audio juke box, myplaylist2= radio, myplaylist3= video */
 
 /*$.ajax({ 
@@ -110,7 +125,7 @@ $.ajax({
     loopOnPrevious: false,
     shuffleOnLoop: false,
      addTime: 'fast',
-     enableRemoveControls: true
+     enableRemoveControls: false
 
 },
     supplied: "m4a,ogg,mp3",

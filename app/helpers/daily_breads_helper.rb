@@ -1,2 +1,3 @@
 module DailyBreadsHelper
+	
 end

@@ -16,42 +16,47 @@
         <table class="table table-condensed">
          <%= form_tag album_path , method: :get do  %>
             <thead>
-            <tr>
-                <td><%= submit_tag "play", name: nil, :class => "btn btn-success " %></td>
-                <td><%= link_to "PlayAll", album_path , :class => "btn btn-success "%></td>
-            </tr>
-                <tr>
+              <tr>
+                  <td><%= submit_tag "play", name: nil, :class => "btn btn-success " %></td>
+                  <td><%= link_to "PlayAll", album_path , :class => "btn btn-success "%></td>
+              </tr>
+              <tr>
                   <th></th>
                   <th></th>
-                    <th>Name</th>
-                    <th>Artist</th>
-                </tr>
+                  <th>Name</th>
+                  <th>Artist</th>
+              </tr>
             </thead>
-              <% i = 0%>
-             <% @album.audios.each do  |audio| %>
-             <% i=i+1 %>
-            <tbody>
-                <tr>
+            <% i = 0%>
+            
+            <%  @album.audios.each do |audio| %>
+              <% i=i+1 %>
+                <tbody>
+                  <tr>
                     <td>  <%= p i %></td>
-                    <td> <%= check_box_tag "audio_ids[]",audio.id %></td>
-                    <td>  <%= audio.name %></td>
+                    <td > <%#= check_box_tag "audio_ids",audio.id,false  %>
+                    <input  type="checkbox" id="audio_ids_<%= audio.id %>" name="audio_ids[]" value="<%= audio.id %>">
+                    </td>
+
+                    <td>  <%= link_to audio.name, album_path(id: @album.id, audio_ids: audio) %></td>
                     <td> <%= audio.artist %></td>
-                </tr>
-            </tbody>
+                  </tr>
+                </tbody>
             <% end %>
         <% end %>
-        </table>
-     </div>
+      </table>
     </div>
-   <div class="col-md-4">
+  </div>
+
+<div class="col-md-4">
      <div class="playlist"> 
            <div id="jp_container_1" class="demo-container">
         <div class="jp-type-playlist">
        <div class="jp-playlist">
-          <ul>
-            <!-- The method Playlist.displayPlaylist() uses this unordered list -->
+          <!--<ul>
+           The method Playlist.displayPlaylist() uses this unordered list
             <li></li>
-          </ul>
+          </ul> -->
         </div>
   </div>
   </div>
@@ -83,7 +88,7 @@
             <tbody>
                 <tr>
                     <td>  <%= p i %></td>
-                    <td> <%= check_box_tag "audio_ids[]",audio.id  %></td>
+                    <td> <%= check_box_tag "audio_ids[]", nil,audio.id %></td>
                     <td>  <%= audio.name %></td>
                     <td> <%= audio.artist %></td>
                 </tr>
@@ -108,3 +113,4 @@
     </div>
   </div>
 </div> 
+

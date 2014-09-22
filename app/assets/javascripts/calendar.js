@@ -1,4 +1,4 @@
-$(window).load(function() { 
+$(document).ready(function() { 
 
   $('#search_box').glDatePicker(
       {
@@ -8,7 +8,7 @@ $(window).load(function() {
           prevArrow: '\u25c4',
           nextArrow: '\u25ba',
            onClick: function(target, cell, date, data) {
-                     target.val(date.getFullYear() +'-'+
+                     target.val(+'-'+
                       (date.getMonth()+1) +'-'+
                       date.getDate());
                       if(data != null) {

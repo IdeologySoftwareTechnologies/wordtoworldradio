@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :audios 
 
   resources :albums do
+    collection do
+      get "box"
+    end
    resources :audios  
   end
 

@@ -5,19 +5,24 @@
 
   # GET /DailyBreads
   # GET /DailyBreads.json
-  def index   
+  def index  
      if params[:q]
         @search=DailyBread.search(params[:q])
-        @daily_breads = @search.result
+        @daily_breads =  @search.result
     else
-          @daily_breads=DailyBread.where(date: Date.today.strftime("%Y-%m-%d")) 
+          @daily_breads=DailyBread.where(date: Date.today.strftime("%Y-%m-%d"))
     end
   end
 
   # GET /DailyBreads/1
   # GET /DailyBreads/1.json
   def show
-
+      if params[:q]
+        @search=DailyBread.search(params[:q])
+        @daily_breads =  @search.result
+    else
+          @daily_breads=DailyBread.where(date: Date.today.strftime("%Y-%m-%d"))
+    end
   end
 
  

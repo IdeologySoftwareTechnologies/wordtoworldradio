@@ -10,5 +10,9 @@
   <%= @daily_bread.date %>
 </p>
 
+
+<%= link_to("Previous ", @daily_bread.previous_bread) if @daily_bread.previous_bread %>
+<%= link_to("Next ", @daily_bread.next_bread) if @daily_bread.next_bread %>
+
 <%= link_to 'Edit', edit_daily_bread_path(@daily_bread) %> |
 <%= link_to 'Back', daily_breads_path %>
