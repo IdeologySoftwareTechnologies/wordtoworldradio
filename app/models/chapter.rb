@@ -23,6 +23,7 @@ class Chapter < ActiveRecord::Base
   belongs_to :admin
   mount_uploader :chapter_image,ChapterImageUploader
   mount_uploader :chapter_audio,ChapterAudioUploader
+  
   def next
     Chapter.where("id > ?", self.id).order("id ASC").first || Chapter.first
   end

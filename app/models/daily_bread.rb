@@ -11,6 +11,7 @@
 #
 
 class DailyBread < ActiveRecord::Base
+
 	validates :date, uniqueness: true
 	mount_uploader :message, ImageUploader
 	mount_uploader :audio, BreadAudioUploader
@@ -18,4 +19,12 @@ class DailyBread < ActiveRecord::Base
 	 validates :date, :presence => true
  	 validates :audio, :presence => true
  	 validates :message, :presence => true
+
+ 	def previous_bread
+  		DailyBread.where("id > ?", self.id).order("id ASC").first || DailyBread.first
+	end
+
+	def next_bread
+  		    DailyBread.where("id < ?", self.id).order("id DESC").first || DailyBread.last
+	end
 end
