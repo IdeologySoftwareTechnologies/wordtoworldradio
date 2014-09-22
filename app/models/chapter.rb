@@ -24,10 +24,11 @@ class Chapter < ActiveRecord::Base
   mount_uploader :chapter_image,ChapterImageUploader
   mount_uploader :chapter_audio,ChapterAudioUploader
   def next
-    Chapter.where("id > ?", self.id).order("id ASC").first || Chapter.first 
+    Chapter.where("id > ?", self.id).order("id ASC").first || Chapter.first
   end
 
   def prev
     Chapter.where("id < ?", self.id).order("id DESC").first || Chapter.last
   end
+   validates :chapter_number,:bible_id, :presence => true
 end

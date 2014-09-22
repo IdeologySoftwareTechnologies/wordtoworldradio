@@ -1,17 +1,30 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p>
 <div>
-  <%if @bible.chapters.count == 0 %>
+  <%#if @bible.chapters.count == 0 %>
     <h3>No Chapters added in <%= @bible.name%></h3>
-  <% else %>
+  <%# else %>
     <table>
-      <% @bible.chapters.in_groups_of(4, false) do |row_chapter| %>
+      <%# @bible.chapters.in_groups_of(4, false) do |row_chapter| %>
       <tr>
-      	<% for chapter in row_chapter %>
-        <td>&nbsp;<%= link_to chapter.chapter_number ,bible_chapter_path(@bible,chapter)%></td>    
-        <% end %>
+      	<%#for chapter in row_chapter %>
+        <td>&nbsp;<%#= link_to chapter.chapter_number ,bible_chapter_path(@bible,chapter)%></td>    
+        <%# end %>
       </tr>   
-      <% end %>
+      <%# end %>
     </table>
-  <%end%>
-</div><br/>
+  <%#end%>
+</div><br/>-->
+
+  <ol>   
+    <li>      
+      <ul>
+        <% @bible.chapters.order(:chapter_number).in_groups_of(4, false) do |row_chapter| %>
+            <% for chapter in row_chapter %>
+            <%#= @last_chapter = row_chapter.last.id %>
+            <li class ="ctnr"><%= link_to chapter.chapter_number ,bible_chapter_path(@bible,chapter),class: "slide" %></li>
+            <% end %>
+        <% end %>
+       </ul>       
+    </li>   
+  </ol>
 

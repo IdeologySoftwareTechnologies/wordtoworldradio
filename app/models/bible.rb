@@ -21,7 +21,13 @@ class Bible < ActiveRecord::Base
 	has_many :chapters
   belongs_to :admin
   mount_uploader :bible_cover,BibleCoverUploader
-
+  def self.search(search)
+    if search
+      where("name like?","#{search}")
+    else
+      all
+    end
+  end
   def next
     Bible.where("id > ?", self.id).order("id ASC").first || Bible.first 
   end
@@ -29,6 +35,8 @@ class Bible < ActiveRecord::Base
   def prev
     Bible.where("id < ?", self.id).order("id DESC").first || Bible.last
   end
+
+  validates :name, :presence => true
 
   
 end

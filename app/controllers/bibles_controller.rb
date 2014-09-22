@@ -5,7 +5,7 @@ class BiblesController < ApplicationController
   # GET /bibles.json
   def index
      
-    @bibles = Bible.all
+    @bibles = Bible.search(params[:search])
   end
 
   # GET /bibles/1

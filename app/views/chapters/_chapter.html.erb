@@ -1,34 +1,44 @@
-<div class="row">
+<div class="row b">
   <div class="col-md-2"></div>
   <div class="col-md-8">
       <div class="row">
-        <div class="col-md-8 chapter"> 
-          <h1>bibles</h1>          
-            <table>            
-              <tbody>
-                <% @bibles.in_groups_of(3, false) do |row_bible| %>                                    
-                      <tr>                      
-                          <% for bible in row_bible %>
-                            <% if bible.root?%>                                            
-                                <td>&nbsp;<%= link_to bible.name,bible%>&nbsp;</td>                                                                   
-                            <% end %>
-                          <% end %>
-                      </tr>
-                <% end %>
-              </tbody>
-            </table>        
-        </div>
-        <div class="col-md-4">
-        <h4>Chapters of <%= @bible.name%></h4>
-          
+        <div class="col-md-7 ">         
+          <h4><center>Books</center></h4>
+          <div class="chapters">         
+            <ol>             
+               <li>      
+                <ul>
+                    <%if @bibles.count!=0 %>
+                    <% @bibles.in_groups_of(3, false) do |row_bible| %>   
+                        <% row_bible.each do |bible|%>
+                            <%unless bible.chapters.count== 0%>
+                                <% @first_chapter = bible.chapters.first.id %>
+                                <li><%=link_to bible.name,bible_chapter_path(bible , @first_chapter) , class: 'l4link btn btn-success'%></li>
+                            <%else%>
+                                <li><%=link_to bible.name, bible_chapters_path(bible) , class: 'l4link btn btn-success'%></li> 
 
+                            <%end%>
+                          
+                        <%end%>
 
+                    <%end%>
+
+                <%else%>
+                Nothing found
+                <%end%>
+                </ul>
+               </li>
+              </ol>
+            </div>
+        </div>       
+        <div class="col-md-5">
+        <h4><center>Chapters of <%= @bible.name%></center></h4>
           <%#= render 'bibles/recoment'%>
-          <%= render 'bibles/show'%>
-
+          <div class="chapters"><%= render 'bibles/show'%></div>
         </div>
       </div>
     </div>    
     <div class="col-md-2" >      
     </div>
 </div>
+  

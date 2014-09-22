@@ -1,0 +1,19 @@
+<%if @bible.prev.chapters.count != 0 %>
+
+<% if @chapter.id == @bible.chapters.first.id %>
+         <%= link_to bible_chapter_path(@bible.prev, @chapter.prev),class: "btn btn-default" do %>
+         <i class="glyphicon glyphicon-chevron-left"></i>
+        <% end %>
+        <%else%>
+        <%= link_to bible_chapter_path(@bible, @chapter.prev),class: "btn btn-default" do %>
+         <i class="glyphicon glyphicon-chevron-left"></i>
+        <% end %>
+	<%end%> 
+	<% else%>
+	<%= link_to bible_chapter_path(Bible.last, @chapter.prev),class: "btn btn-default" do %>
+         <i class="glyphicon glyphicon-chevron-left"></i>
+        <% end %>
+	<%end%>     
+
+
+         
