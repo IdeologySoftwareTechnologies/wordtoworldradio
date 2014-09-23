@@ -16,26 +16,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
   <body> 
-  <div class="row">
-  
- 
-  
-  <div class="col-xs-4 col-md-2"></div>
-  <div class="col-xs-10 col-md-8">
-  <header class="site-header" role="banner"> 
-     <%= render 'layouts/header' %>   
-  </header>  
-  <div class="main-container">  
-   
-      <%= yield %>  
-  </div>   
-  <footer  class="site-footer" role="banner">   
-      <%= render 'layouts/footer' %>    
-  </footer>
-  </div>
-
-  <div class="col-xs-4 col-md-2"></div>
-</div>
-  
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <header class="site-header" role="banner"> 
+          <%= render 'layouts/header' %>   
+        </header>  
+        <div class="main-container"> 
+          <%= yield %>  
+        </div>   
+        <footer  class="site-footer" role="banner">   
+          <%= render 'layouts/footer' %>    
+        </footer>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
   </body>
 </html>

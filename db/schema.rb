@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140919101829) do
+ActiveRecord::Schema.define(version: 20140923091459) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -127,6 +127,18 @@ ActiveRecord::Schema.define(version: 20140919101829) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "sliders", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "slide"
+    t.boolean  "status"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sliders", ["admin_id"], name: "index_sliders_on_admin_id"
 
   create_table "videos", force: true do |t|
     t.string   "name"

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @slider.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @slider.description %>
+</p>
+
+<p>
+  <strong>Slide:</strong>
+  <%= @slider.slide %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @slider.status %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @slider.admin %>
+</p>
+
+<%= link_to 'Edit', edit_slider_path(@slider) %> |
+<%= link_to 'Back', sliders_path %>

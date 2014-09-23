@@ -1,5 +1,7 @@
 
 Rails.application.routes.draw do  
+  resources :sliders
+
   resources :news
   get 'friends/new'
   resources :mailbox   
