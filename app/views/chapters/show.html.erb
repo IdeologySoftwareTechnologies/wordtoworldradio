@@ -1,6 +1,5 @@
 <%= render 'chapter'%>
 &nbsp;
-
 <div class="row">
   <div class="col-md-1">
   </div>
@@ -16,8 +15,7 @@
     <p> 
       <%= render 'prev'%>
       <%= render 'next'%>
-      <% if @bible.chapters.count == 0 %>
-      
+      <% if @bible.chapters.count == 0 %>      
         <%= image_tag "images.png" %>
         <%else%>       
        <%= image_tag @chapter.chapter_image_url, class: "img-responsive" %>
@@ -28,13 +26,11 @@
     <p>
       <%= audio_tag @chapter.chapter_audio_url %>
     </p> 
-  </div>
-    
+  </div>    
   <div class="col-md-1">
   </div>
   <div class="col-md-2">    
   </div>
-
 </div>
 
 

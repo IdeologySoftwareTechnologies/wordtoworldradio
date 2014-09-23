@@ -15,14 +15,10 @@
                                 <% @first_chapter = bible.chapters.first.id %>
                                 <li><%=link_to bible.name,bible_chapter_path(bible , @first_chapter) , class: 'l4link btn btn-success'%></li>
                             <%else%>
-                                <li><%=link_to bible.name, bible_chapters_path(bible) , class: 'l4link btn btn-success'%></li> 
-
-                            <%end%>
-                          
+                                <li><%=link_to bible.name, bible_chapters_path(bible) , class: 'l4link btn btn-success'%></li>
+                            <%end%>                          
                         <%end%>
-
                     <%end%>
-
                 <%else%>
                 Nothing found
                 <%end%>
