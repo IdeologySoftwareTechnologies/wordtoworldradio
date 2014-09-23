@@ -1,4 +1,14 @@
+
 <p id="notice"><%= notice %></p>
+
+<style type="text/css">
+  body
+{
+  background-color: #CB8937;
+}
+</style>
+
+
 <div class="container">
 <div class="row">
    <div class="col-md-12">
@@ -8,12 +18,20 @@
   </div>
 </div>
 
+
+
 <div class="row">
-<div class="video-player">
-  <%= render "shared/video" %>
+  <div class="col-md-4">
+  </div>
+
+  <div class="col-md-4">
+    <%= render "shared/video" %>
+  </div>
+
+  <div class="col-md-4">
   </div>
 </div>
-</div>
+
 
 
  <div class="row">
@@ -23,8 +41,9 @@
     <% end %>
   </div>
   </div>
-</div>
 
 
+ <div class="row">
 <%= render_shareable  %>
-
+</div>
+</div>
