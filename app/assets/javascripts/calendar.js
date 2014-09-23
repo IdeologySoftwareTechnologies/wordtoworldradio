@@ -8,7 +8,7 @@ $(document).ready(function() {
           prevArrow: '\u25c4',
           nextArrow: '\u25ba',
            onClick: function(target, cell, date, data) {
-                     target.val(+'-'+
+                     target.val(date.getFullYear()+'-'+
                       (date.getMonth()+1) +'-'+
                       date.getDate());
                       if(data != null) {
