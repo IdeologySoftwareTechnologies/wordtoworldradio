@@ -1,6 +1,6 @@
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
-
+rescue_from ActiveRecord::RecordNotFound, with: :invalid_chapter
   # GET /chapters
   # GET /chapters.json
   def index
@@ -85,5 +85,10 @@ class ChaptersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def chapter_params
       params.require(:chapter).permit(:chapter_number, :chapter_image, :chapter_audio, :bible_id, :admin_id, :status)
+    end
+
+    def invalid_chapter
+      logger.error "Attempt to access invalid chapter #{params[:id]}"
+      redirect_to bible_chapters_path, notice: 'Invalid chapter'
     end
 end
