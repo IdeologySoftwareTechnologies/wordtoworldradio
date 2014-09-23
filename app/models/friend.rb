@@ -10,4 +10,7 @@
 #
 
 class Friend < ActiveRecord::Base
+   validates :name, presence: true
+   validates :friend_email, presence: true
+   validates :friend_email, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
 end

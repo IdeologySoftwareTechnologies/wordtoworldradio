@@ -10,7 +10,7 @@ class FriendsController < ApplicationController
         # Tell the UserMailer to send a welcome email after save
         FriendMailer.friend_email(@friend).deliver
  
-        format.html { redirect_to(new_friend_path, notice: 'friend was successfully created.') }
+        format.html { redirect_to(new_friend_path, notice: 'Invitation has been sent.') }
         format.json { render json: @friend, status: :created, location: @friend }
       else
         format.html { render action: 'new' }
