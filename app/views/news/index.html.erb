@@ -4,7 +4,7 @@
     <% @news.each do |news| %>
       <div class="list_contact">
         <h4> <%= news.title %></h4>
-        <b><%= news.created_at.to_date %></b>
+        <b><%= news.created_at.strftime("%d/%m/%Y") %>&nbsp&nbsp&nbsp&nbsp<%="#{time_ago_in_words(news.created_at)} ago "%></b>
         <p><%= news.content %></p> 
       </div>
     <% end %>
