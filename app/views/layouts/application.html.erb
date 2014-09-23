@@ -16,9 +16,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
   <body>    
-  <header class="site-header" role="banner"> 
-     <%= render 'layouts/header' %>   
-  </header>  
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <header class="site-header" role="banner"> 
+          <%= render 'layouts/header' %>   
+        </header>   
   <div class="main-container">  
     <div class="panel panel-success">
       <div class="panel-heading"><center>Title</center></div>
@@ -30,8 +33,11 @@
       
   </div>   
   <footer  class="site-footer" role="banner">   
-      <%= render 'layouts/footer' %>    
+      <%= render 'layouts/footer' %>
+       </div>
+      <div class="col-md-2"></div>
+    </div>    
   </footer>
-
-  </body>
+   </body>
 </html>
+

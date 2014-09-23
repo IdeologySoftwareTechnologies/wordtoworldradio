@@ -14,27 +14,4 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
- $('.slide').click(function() {
-   $(".slide").each(function(i,elem) { // clear the style first
-     $(elem).removeClass("clicked");
-   });//so only ONE element is coloured SELECTED
-   $(this).addClass("clicked");//add the "selected" colour
-});
-
-$('.slide').hover(
-   function() {
-    if(!$(this).hasClass("clicked")) //check flag
-    {//then hover
-     $(this).animate({
-         background: url(images.png) bottom right no-repeat;padding-left: 10px !important;
-     }, 300);
-    }
-   }, 
-  function() {
-   if(!$(this).hasClass("clicked")) {
-     $(this).animate({
-         background: url(images.png) bottom right no-repeat;padding-left: 10px !important;
-     }, 200);
-     }
-    }
-);​
+ 

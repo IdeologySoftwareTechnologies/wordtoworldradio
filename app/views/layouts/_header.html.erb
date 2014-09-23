@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -14,8 +15,23 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <!--<li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>-->
+        
+      </ul>
+      <!--<form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>-->
+      <ul class="nav navbar-nav navbar-right">
+      
+        <li><%= link_to "Home" , root_path %></li>
+        <li><%= link_to "About Us" , root_path %></li>
+        <li><%= link_to "Outreach" , root_path %></li>
+        <li><%= link_to "Connect" , root_path %></li>
+        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Send Us <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -23,20 +39,30 @@
             <li><%= link_to 'Testimonials', new_contact_path(contact_type: 2) %></li>
             <li><%= link_to 'Feedback', new_contact_path(contact_type: 3) %></li>
             <li class="divider"></li>
-            <li><%= link_to 'Mailbox', mailbox_index_path%></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-      <% if admin_signed_in? %>        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Side nav <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            
+            <li><%= link_to "Live Radio" , root_path %></li>
+            <li><%= link_to 'Prayer Request', mailbox_index_path %></li>
+            <li><%= link_to "Jukebox" , albums_path %></li>
+            <li><%= link_to "Daily bread" , daily_breads_path %></li>
+            <li><%= link_to "Audio bible" , bibles_path%></li> 
+            <li><%= link_to "videos" , videos_path %></li>
+            <li><%= link_to "Podcast" , root_path %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><%= link_to "News" , news_index_path %></li>
+            <li><%= link_to "Invite a friend" , new_friend_path %></li>
+            
+          </ul>
+        <% if admin_signed_in? %>        
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
@@ -48,23 +74,9 @@
             <li><%= link_to "Sign Out" , destroy_admin_session_path, method: :delete %></li>
           </ul>
         </li>
-
         <% else %>
-         
-
         <li><%= link_to "Sign In" , rails_admin_path %></li>
         <% end %>
-        <li><%= link_to "bread" , daily_breads_path %></li>
-                <li><%= link_to "albums" , albums_path %></li>
-           <li><%= link_to "videos" , videos_path %></li>
-
-           <li><%= link_to "Invite a friend" , new_friend_path %></li>
-           <li><%= link_to "News" , news_index_path %></li>
-
-          
-           <li><%= link_to "bible" , bibles_path%></li>
-
-           
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
