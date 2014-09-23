@@ -1,7 +1,7 @@
 $(function(){
 
-// playlist buttons
-
+// playlist buttons 
+/* player 1: jukebox, player2:all audio, player3:video, player4:dailybread, player5:radio, player6:audio bible 
   /* myplaylist= audio juke box, myplaylist2= radio, myplaylist3= video */
 
 /*$.ajax({ 
