@@ -1,8 +1,5 @@
 $(function(){
 
- 
-
-
 // playlist buttons
 
   /* myplaylist= audio juke box, myplaylist2= radio, myplaylist3= video */
