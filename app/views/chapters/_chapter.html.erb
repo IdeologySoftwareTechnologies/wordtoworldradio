@@ -2,22 +2,21 @@
   <div class="col-md-2"></div>
   <div class="col-md-8">
       <div class="row">
-        <div class="col-md-7 ">         
-          <div class="btn-group">
-  <button class="btn btn-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
-   <%= @bible.name%><span class="caret"></span>
+        <div class="col-md-7 "> 
+
+
+
+        <div class="btn-group">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+    <%= @bible.name%> <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-   <div class="chapters">         
-            <ol>             
-               <li>      
-                <ul>
-                    <%if @bibles.count!=0 %>
+    <li><%if @bibles.count!=0 %>
                     <% @bibles.in_groups_of(3, false) do |row_bible| %>   
                         <% row_bible.each do |bible|%>
                             <%unless bible.chapters.count== 0%>
                                 <% @first_chapter = bible.chapters.first %>
-                                <li><%=link_to bible.name,bible_chapter_path(bible , @first_chapter) , class: 'l4link btn btn-success'%></li>
+                                <li><%=link_to bible.name,bible_chapter_path(bible , @first_chapter)%></li>
                             <%else%>
                                 <li><%=link_to bible.name, bible_chapters_path(bible) , class: 'l4link btn btn-success'%>
                                 
@@ -27,14 +26,19 @@
                     <%end%>
                 <%else%>
                 Nothing found
-                <%end%>
-                </ul>
-               </li>
-              </ol>
-            </div>
-        </div>  
+                <%end%></li>
+   
   </ul>
 </div>
+</div>
+
+
+
+
+
+
+        
+          
                
         <div class="col-md-5">
         
@@ -43,11 +47,11 @@
 
 
           <div class="btn-group">
-  <button class="btn btn-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
    <%= @chapter.chapter_number%> <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-   <li><div class="chapters"><%= render 'bibles/show'%></div></li>
+   <li><%= render 'bibles/show'%></li>
   </ul>
 </div>
 
@@ -61,3 +65,6 @@
     <div class="col-md-2" >      
     </div>
 </div>
+
+
+
