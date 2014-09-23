@@ -1,18 +1,56 @@
-  <h1>Listing posts</h1>
+<head>
+<style type="text/css">
+  body
+{
+  background-color:#99521B;
+}
+</style>
+
+</head>
+
+<center>
+  <h1 class="bread_header">Daily Bread</h1>
+</center>
+
+<div class="contianer">
+<div class="row">
+
+<div class="col-md-4">
+  <div class="verse"> 
+  </div>
+</div>
+
+<div class="col-md-4">
   <div id="search_field" >
     <%= search_form_for @search,   :id => "search_form"  do |f| %>
       <div id="field">
         <%= f.text_field :date_cont , :id  => 'search_box', :readonly => true %>
-        </div>
+      </div>
         <% end %>
-   </div>
- 
-  <div id="image">
+  </div>
+</div>
+
+<div class="col-md-4">
+</div>
+
+</div>
+
+<div class="row">
+ <div class="col-md-offset-3">
+    <div class="image" >
       <% @daily_breads.each do |bread| %>
         <td><%= image_tag bread.message , :class=> "img-responsive"%></td>
       <% end %>
-  </div>
+    </div>
+    </div>
+</div>
 
+
+<br>
+<div class="row">
+  <div class="col-md-4">
+  </div>
+    <div class="col-md-4">
 <div id="jp_container_4" class="jp-video jp-video-270p">
       <div class="jp-type-playlist">
         <div id="jquery_jplayer_4" class="jp-jplayer"></div>
@@ -58,11 +96,16 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="col-md-4">
+  </div>
+
+</div>
 
 
 <%= render_shareable  %>
 
-
+</div>
  
 
 
