@@ -10,10 +10,12 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  parent_id   :integer
+#  slug        :string(255)
 #
 # Indexes
 #
 #  index_bibles_on_admin_id  (admin_id)
+#  index_bibles_on_slug      (slug) UNIQUE
 #
 
 require 'rails_helper'

@@ -20,8 +20,14 @@
      <%= render 'layouts/header' %>   
   </header>  
   <div class="main-container">  
-   
-      <%= yield %>  
+    <div class="panel panel-success">
+      <div class="panel-heading"><center>Title</center></div>
+      <div class="panel-body">
+           <%= yield %> 
+      </div>
+    </div>
+
+      
   </div>   
   <footer  class="site-footer" role="banner">   
       <%= render 'layouts/footer' %>    

@@ -1,8 +1,36 @@
-<%= form_tag(bibles_path,:method => "get",id: "search-form") do%>
+<%#= form_tag(bibles_path,:method => "get",id: "search-form") do%>
 
-  <%= text_field_tag :search,params[:search] %>
-  <%= submit_tag "search",:name => nil%>
-<%end%>
+  <%#= text_field_tag :search,params[:search] %>
+  <%#= submit_tag "search",:name => nil%>
+<%#end%>
+<div class="row">
+  <div class="col-md-8">
+     <h4><center>Books</center></h4> 
+  </div>
+
+   <div class="col-md-4">
+     <h4><center>Chapters</center></h4> 
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+       <h4><center></center></h4> 
+  </div>
+   <div class="col-md-4">
+     <h4><center></center></h4> 
+  </div>
+  <div class="col-md-2">
+     <h4><center></center></h4> 
+  </div>
+   <div class="col-md-2">
+     <h4><center></center></h4> 
+  </div>
+</div>
+
+
+
+
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
@@ -17,7 +45,7 @@
                     <% @bibles.in_groups_of(3, false) do |row_bible| %>   
                         <% row_bible.each do |bible|%>
                             <%unless bible.chapters.count== 0%>
-                                <% @first_chapter = bible.chapters.first.id %>
+                                <% @first_chapter = bible.chapters.first %>
                                 <li><%=link_to bible.name,bible_chapter_path(bible , @first_chapter) , class: 'l4link btn btn-success'%></li>
                             <%else%>
                                 <li><%=link_to bible.name, bible_chapters_path(bible) , class: 'l4link btn btn-success'%></li> 

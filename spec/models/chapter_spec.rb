@@ -11,11 +11,13 @@
 #  status         :boolean
 #  created_at     :datetime
 #  updated_at     :datetime
+#  slug           :string(255)
 #
 # Indexes
 #
 #  index_chapters_on_admin_id  (admin_id)
 #  index_chapters_on_bible_id  (bible_id)
+#  index_chapters_on_slug      (slug) UNIQUE
 #
 
 require 'rails_helper'
