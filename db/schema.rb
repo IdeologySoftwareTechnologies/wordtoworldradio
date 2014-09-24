@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140919101829) do
+ActiveRecord::Schema.define(version: 20140923091459) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -74,9 +74,11 @@ ActiveRecord::Schema.define(version: 20140919101829) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+    t.string   "slug"
   end
 
   add_index "bibles", ["admin_id"], name: "index_bibles_on_admin_id"
+  add_index "bibles", ["slug"], name: "index_bibles_on_slug", unique: true
 
   create_table "chapters", force: true do |t|
     t.integer  "chapter_number"
@@ -87,10 +89,12 @@ ActiveRecord::Schema.define(version: 20140919101829) do
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "chapters", ["admin_id"], name: "index_chapters_on_admin_id"
   add_index "chapters", ["bible_id"], name: "index_chapters_on_bible_id"
+  add_index "chapters", ["slug"], name: "index_chapters_on_slug", unique: true
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -114,6 +118,19 @@ ActiveRecord::Schema.define(version: 20140919101829) do
     t.string   "audio"
   end
 
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "friends", force: true do |t|
     t.string   "name"
     t.string   "friend_email"
@@ -127,6 +144,18 @@ ActiveRecord::Schema.define(version: 20140919101829) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "sliders", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "slide"
+    t.boolean  "status"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sliders", ["admin_id"], name: "index_sliders_on_admin_id"
 
   create_table "videos", force: true do |t|
     t.string   "name"

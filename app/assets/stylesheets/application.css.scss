@@ -13,6 +13,20 @@
  *= require_tree .
  *= require_self
  */
+ body {
+   background:#FF8F45
+ !important;
+}
+.footer{
+	background:#800000
+ !important;
+ height: 300px;
+ color: white;
+}
+
+
+
+
  $navbar-default-bg:#D2D2D2;
  $navbar-default-bg:#D2D2D2;
 
@@ -20,6 +34,5 @@
  @import "bootstrap"
 
  
-
 
 
