@@ -11,6 +11,7 @@
 #  updated_at  :datetime
 #  parent_id   :integer
 #  slug        :string(255)
+#  bible_type  :integer
 #
 # Indexes
 #

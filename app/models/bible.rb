@@ -11,6 +11,7 @@
 #  updated_at  :datetime
 #  parent_id   :integer
 #  slug        :string(255)
+#  bible_type  :integer
 #
 # Indexes
 #
@@ -39,13 +40,8 @@ class Bible < ActiveRecord::Base
 	has_many :chapters
   belongs_to :admin
   mount_uploader :bible_cover,BibleCoverUploader
-  def self.search(search)
-    if search
-      where("name like?","#{search}")
-    else
-      all
-    end
-  end
+ 
+
   def next
     Bible.where("id > ?", self.id).order("id ASC").first || Bible.first 
   end
@@ -55,6 +51,17 @@ class Bible < ActiveRecord::Base
   end
 
   validates :name, :presence => true
+
+
+  def self.search(search)
+        if search
+             where("name like ?", "%#{search}%") 
+        else
+            all
+        end
+  end
+
+
 
   
 end
