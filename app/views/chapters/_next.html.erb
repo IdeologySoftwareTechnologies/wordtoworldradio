@@ -1,16 +1,20 @@
 
   <% if @chapter.id == @bible.chapters.last.id%>
+  <% puts "======================chapter 1========#{@chapter.id}================================="%>
         <% if @bible.next.chapters.count == 0 %>
-            <%= link_to bible_chapter_path(Bible.first,@chapter.next),class: "btn btn-default pull-right" do %> 
+        <% puts "===================Bible 1============#{Bible.first.id}================================="%>
+        <% @first_bible = Bible.first%>
+            <%= link_to bible_chapter_path(@first_bible,@first_bible.chapters.first),class: "btn btn-default pull-right" do %> 
                  <i class="glyphicon glyphicon-chevron-right"></i>
             <% end %>
         <%else%>
-
+        <% puts "======================chapter 2========#{@chapter.id}================================="%>
             <%= link_to bible_chapter_path(@bible.next,@chapter.next),class: "btn btn-default pull-right" do %> 
         	   <i class="glyphicon glyphicon-chevron-right"></i>
         	<% end %>
         <%end%>
   <%else%>
+  <% puts "===================Bible 2============#{@bible}================================="%>
      <%= link_to bible_chapter_path(@bible,@chapter.next),class: "btn btn-default pull-right" do %> 
         <i class="glyphicon glyphicon-chevron-right"></i>
      <% end %>      

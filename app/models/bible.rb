@@ -10,13 +10,31 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  parent_id   :integer
+#  slug        :string(255)
 #
 # Indexes
 #
 #  index_bibles_on_admin_id  (admin_id)
+#  index_bibles_on_slug      (slug) UNIQUE
 #
 
 class Bible < ActiveRecord::Base
+  extend FriendlyId
+    friendly_id :slug_candidates, use: [:slugged, :finders]
+
+    # Try building a slug based on the following fields in
+    # increasing order of specificity.
+    def slug_candidates
+      [
+        :name
+      ]
+    end
+
+    def should_generate_new_friendly_id?
+      slug.blank? || name_changed?
+    end
+
+
 	acts_as_tree dependent: :destroy
 	has_many :chapters
   belongs_to :admin
