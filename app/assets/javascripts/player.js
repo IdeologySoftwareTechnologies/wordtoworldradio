@@ -1,5 +1,10 @@
 $(function(){
 
+
+//js for multiple slide carousel
+ 
+//ends multiple slide carousel
+
 // playlist buttons 
 /* player 1: jukebox, player2:all audio, player3:video, player4:dailybread, player5:radio, player6:audio bible 
   /* myplaylist= audio juke box, myplaylist2= radio, myplaylist3= video */
@@ -85,6 +90,26 @@ $.ajax({
 });
 
 
+ $('#myCarousel').carousel({
+  interval: 4000
+})
+
+$('.carousel .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+  
+  for (var i=0;i<2;i++) {
+    next=next.next();
+    if (!next.length) {
+      next = $(this).siblings(':first');
+    }
+    
+    next.children(':first-child').clone().appendTo($(this));
+  }
+});
 
 
 /*$('.play').on("click",function(){
@@ -240,6 +265,8 @@ height: "100%"
     $("#jplayer_inspector_3").jPlayerInspector({jPlayer:$("#jquery_jplayer_3")});
     $("#jplayer_inspector_4").jPlayerInspector({jPlayer:$("#jquery_jplayer_4")});
     $("#jplayer_inspector_6").jPlayerInspector({jPlayer:$("#jquery_jplayer_6")});
+
+
 
    
 });
