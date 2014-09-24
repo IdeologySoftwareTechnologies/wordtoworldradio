@@ -1,5 +1,8 @@
+
 <div class="row">
 
+
+ 
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -11,19 +14,26 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
+
       <%= image_tag "bg.jpg"%>
+
       <div class="carousel-caption">
         ...
       </div>
     </div>
+
     <%@sliders.each do |slider|%>
     <div class="item">
       <%= image_tag slider.slide_url(:thumb),:class => "img-responsive"%>
+
+    
       <div class="carousel-caption">
         ...
       </div>
     </div>
+
     <%end%>
+
   </div>
 
   <!-- Controls -->
@@ -37,20 +47,22 @@
 </div>
 
 
+
+
  
 
 
 <div class="row" style="border:solid 1px">
   <center><h3>Prayer requests</h3></center>
   <div class="col-md-2">
-  	<p><%= link_to 'Send A Prayer Request', new_contact_path(contact_type: 1) %></p>
+    <p><%= link_to 'Send A Prayer Request', new_contact_path(contact_type: 1) %></p>
   </div>
   <div class="col-md-10">
     <% @prayerreq.each do |contact| %>
       <div class="list_contact">
-      	<p> <%= contact.name %></p>
-      	<center> <%= contact.message %></center>
-      	<div align="right"> <%= contact.email %></div>
+        <p> <%= contact.name %></p>
+        <center> <%= contact.message %></center>
+        <div align="right"> <%= contact.email %></div>
       </div>
     <% end %>
   </div>

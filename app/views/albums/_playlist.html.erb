@@ -3,23 +3,44 @@
         
         background-color: #656571;
         color: white;
+        width: 100%;
       }
    .playlist
       {
-        margin-left: 132px;
-        margin-right: 132px;
+        margin-left: 149px;
+        margin-right: 149px;
       }
+      table a:link {
+  color: white;
+}
+
+/* visited link */
+table a:visited {
+  color: white;
+}
+
+/* mouse over link */
+  table a:hover {
+  color: yellow;
+}
+
+/* selected link */
+table a:active {
+color: white;
+  }
+
+
 </style>
-
-
-  <div id="current-track-name">
+  
+<div class="row playlist visible-lg visible-md">
+<div id="current-track-name">
     <marquee scrollamount="8">
       <div id="current-track">
       </div>
     </marquee>
   </div>
-
-
+</div>
+  
 <div class="row playlist visible-lg visible-md">
     <div class="table-responsive"> 
         <table class="table table-condensed">
@@ -78,8 +99,8 @@
 </div> 
 
  <div class="row playlist2 visible-sm visible-xs ">
- <div class="row">
-  <div id="current-track-name">
+<!-- <div class="row">
+   <div id="current-track-name">
     <marquee scrollamount="8">
       <div id="current-track">
       </div>
@@ -125,16 +146,16 @@
         <% end %>
         </table>
      </div>
-    </div>
+    </div> -->
    <div class="col-md-4">
      <div class="playlist2"> 
            <div id="jp_container_1" class="demo-container">
         <div class="jp-type-playlist">
        <div class="jp-playlist">
-          <!--<ul>
-           The method Playlist.displayPlaylist() uses this unordered list
+          <ul>
+          <!--  The method Playlist.displayPlaylist() uses this unordered list -->
             <li></li>
-          </ul> -->
+          </ul> 
         </div>
   </div>
   </div>
