@@ -18,7 +18,7 @@
                                 <% @first_chapter = bible.chapters.first %>
                                 <li><%=link_to bible.name,bible_chapter_path(bible , @first_chapter)%></li>
                             <%else%>
-                                <li><%=link_to bible.name, bible_chapters_path(bible) , class: 'l4link btn btn-success'%>
+                                <li><%=link_to bible.name, bible_chapters_path(bible)%>
                                 
                                 </li>
                             <%end%>                          

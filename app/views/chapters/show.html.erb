@@ -1,11 +1,11 @@
 
 <%= render 'chapter'%>
 &nbsp;
-<div class="row">
+<div class="row  book">
   
    <div class="col-md-1">
   </div>
-  <div class="col-md-10 book">
+  <div class="col-md-10">
     <p id="notice"><%= notice %></p>
     <center>
     <h3>Chapters Of <%= @chapter.bible.name%></h3>
@@ -15,6 +15,7 @@
     <p> 
       <%= render 'prev'%>
       <%= render 'next'%>
+      
       <% if @bible.chapters.count == 0 %>      
         <%= image_tag "images.png" %>
         <%else%>       
