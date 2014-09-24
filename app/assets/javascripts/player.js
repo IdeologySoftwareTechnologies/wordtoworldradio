@@ -81,7 +81,12 @@ $.ajax({
               document.getElementById("audio_ids_"+this.id).checked = true;
            });
               }
+
 });
+
+
+
+
 /*$('.play').on("click",function(){
     $.ajax({ 
         type: 'GET',
@@ -187,10 +192,10 @@ $.ajax({
 },
     supplied: "mp4,m4v",
     preload: "auto",
-    size: {
-                         width: "640px",
-                         height: "420px"
-                    }
+     size: {
+width: "100%",
+height: "100%"
+}
   });
 
 
