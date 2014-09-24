@@ -1,3 +1,47 @@
 // Place all the styles related to the chapters controller here.
 // They will automatically be included in application.css.
+<<<<<<< HEAD
 // You can use Sass (SCSS) here: http://sass-lang.com/
+=======
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+li                  {list-style:none;}
+
+
+
+.ctnr{
+	padding-left: 10px;
+}
+.l4link
+{width:10em;height:2em;float:left;margin:.1em; 
+					  }
+
+.chap{width:3em;height:2em;float:left;margin:.1em; padding:.1em;overflow:auto;
+					 background: url(day-bg.png) bottom right no-repeat;padding-left: 10px; }
+
+
+.clicked{
+	background-color: red!important;
+}
+.chapters{
+	height: 200px;
+	overflow:auto;
+}
+
+.b {
+  
+  background-color: white;
+  color: #333;
+  text-align: center;
+  
+}
+.clicked
+{//set !important on the style so it overrides the .slide bg colour
+    background: url(images.png) bottom right no-repeat;padding-left: 10px !important; 
+}
+
+
+>>>>>>> 2504c4e1e3ca89592eb0761857c0e7df9fd2662c

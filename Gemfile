@@ -32,6 +32,7 @@ gem 'closure_tree'
 gem 'rails4-autocomplete'
 
 
+
 group :development do
   gem 'spring'
 end
