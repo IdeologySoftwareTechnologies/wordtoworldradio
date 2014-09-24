@@ -17,5 +17,6 @@
 #
 
 class Slider < ActiveRecord::Base
+	mount_uploader :slide, SlideUploader
   belongs_to :admin
 end
