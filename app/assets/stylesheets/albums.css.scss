@@ -15,7 +15,6 @@
 	
   position: relative;
   vertical-align: top;
-  width: 100%;
   height: 60px;
   padding:13px;
   font-size: 22px;
@@ -27,7 +26,8 @@
   cursor: pointer;
   height:70px;
   box-shadow: inset 0 -2px #e2b607;
-
+   margin-left: 14px; 
+   margin-right: 14px;
 }
 .current-text
 {

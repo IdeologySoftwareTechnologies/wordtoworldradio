@@ -9,20 +9,6 @@ $(function(){
 /* player 1: jukebox, player2:all audio, player3:video, player4:dailybread, player5:radio, player6:audio bible 
   /* myplaylist= audio juke box, myplaylist2= radio, myplaylist3= video */
 
-/*$.ajax({ 
-        type: 'GET',
-        url:window.location.pathname ,
-        dataType: "json",
-        success: function(json){
-          $.each(json.audios,function(index, audio){
-            $.each(audio, function(index, audio) {
-              var w=JSON.stringify(audio)
-              alert(w)
-              myPlaylist.add({title:(audio.name), m4a:(audio.audio.audio.url), artist:(audio.artist)});
-              });
-                 });
-              }
-           }); */
 $.ajax({ 
         type: 'GET',
         url:window.location ,
@@ -117,30 +103,6 @@ $('.carousel .item').each(function(){
 });
 
 
-/*$('.play').on("click",function(){
-    $.ajax({ 
-        type: 'GET',
-        url:window.location.pathname ,
-        dataType: "json",
-        success: function(json){
-          alert("vanthidichi")
-              }
-           });
-  }); 
-
-/*$('.play').on("click",function(){
-  $(this).each(function(){
-    url=this.href 
-    $.getJSON(url,function(data){
-      $.each(data,function(data){ 
-            myPlaylist3.add()
-            myPlaylist3.add({title:$(this).attr("video_identifier"),m4v:$(this).attr("video_url")})
-             });
-         });
-      }); 
-      return false;
- });  
-*/
 
  $("#jquery_jplayer_1").bind($.jPlayer.event.setmedia, function(event) { 
   $("#jquery_jplayer_1").jPlayer("play");

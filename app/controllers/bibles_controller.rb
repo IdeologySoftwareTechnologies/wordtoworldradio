@@ -11,9 +11,7 @@ class BiblesController < ApplicationController
   # GET /bibles/1
   # GET /bibles/1.json
   def show
-
         redirect_to bible_chapters_path(@bible)
-   
   end
 
   # GET /bibles/new
