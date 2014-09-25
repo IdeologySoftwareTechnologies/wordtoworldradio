@@ -20,6 +20,8 @@ class AlbumsController < ApplicationController
      else
          # @albums = Album.paginate(:page => params[:page], :per_page => 12)
          @albums = Album.all
+         @albums_paginate = Album.paginate(:page => params[:page], :per_page => 4)
+         @albums_paginate_bottom = Album.paginate(:page => params[:page], :per_page => 12)
      end
 
     if params[:audio_ids]
