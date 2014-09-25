@@ -7,24 +7,27 @@ body { background-color: #EBC053; }
 </style>
 <br>
 
-<center>
-  <div class="row" >
-    <% @albums_paginate.each do |album|  %>
-      <div class="col-lg-2 col-md-2 col-xs-2 ">
-        <a class="thumbnail" href="<%= album_path(album) %>">
-        <%= image_tag album.cover_url , :class => "img-responsive" %>
-          <center>
-            <%= album.name %>
-          </center>
-        </a>
-      </div>
-    <% end %>
-  </div>
-</center>
+<div class="row">
 
-<center>
-    <%= will_paginate @albums_paginate, renderer: BootstrapPagination::Rails, :page_links => false %>
-</center>
+<div class="carousel slide" id="myCarousel" >
+  <div class="carousel-inner" style="height:180px">
+    
+    <div class="item active" >
+      <div class="col-lg-3"><a href="<%= album_path(@album_first) %>">
+      <%= image_tag @album_first.cover_url , :class => "img-responsive" %></a></div>
+    </div>
+    <% @albums_remain.each do |album| %>
+    <div class="item" >
+      <div class="col-lg-3"><a href="<%= album_path(album) %>"><%= image_tag album.cover_url , :class => "img-responsive" %></a></div>
+    </div>
+    <%end%>
+    
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+
+</div>
+
 
 <div class="search-form">
   <%= form_tag(album_path, :method => "get", class: "navbar-form", id: "search-form") do %>
@@ -79,19 +82,27 @@ body { background-color: #EBC053; }
 
 <div class="row">
   <%= render "playlist" %>
-  <div class="row">
-    <div class="col-md-12">
-      <% @albums.each do |album|  %>
-        <div class="col-lg-2 col-md-2 col-xs-6 ">
-          <a class="thumbnail" href="<%= album_path(album) %>">
-            <%= image_tag album.cover_url , :class => "img-responsive" %></a>
-          <% end %>
-        </div>
-      </div>
+  </div>
+
+<div class="row">
+  <% @album_bottom_pagiantion.each do |album|  %>
+    <div class="col-xs-6 col-md-3">
+      <a class="thumbnail" href="<%= album_path(album) %>">
+      <%= image_tag album.cover_url , :class => "img-responsive" %></a>
     </div>
-  <%#= will_paginate @albums_paginate_bottom,renderer: BootstrapPagination::Rails, :page_links => false %>
+  <% end %>
+  </div>
+
+<div class="row">
+<center>
+  <%= will_paginate @album_bottom_pagiantion,renderer: BootstrapPagination::Rails, :page_links => false , remote: true %>
+  </center>
+</div>
+
+<div class="row">
   <%= render_shareable  %>
 </div>
+
 
 
 

@@ -2,55 +2,40 @@ class AlbumsController < ApplicationController
   before_action :set_album, only: [:edit, :update, :destroy]
   before_filter :loged_in?, :only => [:new,:create, :edit, :destroy]
 
-
-  
-  # GET /albums
-  # GET /albums.json
   def index
     @albums = Album.all
   end
-
-  # GET /albums/1
-  # GET /albums/1.json
   def show
-       @album = Album.find(params[:id])
+      # Query for showing  slider
+        @album_first=Album.first
+        @album_first_id=@album_first.id
+        @albums_remain=Album.where('id NOT IN(?)', @album_first_id)
+        @album = Album.find(params[:id])
 
-     if params[:search]
-          @albums = Album.search(params[:search]).order("created_at DESC")
-     else
-         # @albums = Album.paginate(:page => params[:page], :per_page => 12)
-         @albums = Album.all
-         @albums_paginate = Album.paginate(:page => params[:page], :per_page => 4)
-         @albums_paginate_bottom = Album.paginate(:page => params[:page], :per_page => 12)
-     end
+       
+
+    if params[:search]
+      @albums = Album.search(params[:search]).order("created_at DESC")
+        else
+          @albums = Album.all
+          @album_bottom_pagiantion  = Album.paginate(:page => params[:page], :per_page => 4)
+    end
 
     if params[:audio_ids]
-         #@album_id = Audio.where(id: params[:audio_ids]).where.not(album_id: nil).select(:album_id).pluck(:album_id).uniq[0]
-         # @audios = Audio.find(params[:audio_ids])
-         
-         @audios = @album.audios.where(id: params[:audio_ids] )
-    else
- 
+      @audios = @album.audios.where(id: params[:audio_ids] )
+      else
         @audios = @album.audios.all
+        @album_bottom_pagiantion  = Album.paginate(:page => params[:page], :per_page => 4)
     end
-    
   end
 
-  def box
-
-  end
-
-  # GET /albums/new
   def new
     @album = Album.new
   end
 
-  # GET /albums/1/edit
   def edit
   end
 
-  # POST /albums
-  # POST /albums.json
   def create
     @album = Album.new(album_params)
 
@@ -65,8 +50,6 @@ class AlbumsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /albums/1
-  # PATCH/PUT /albums/1.json
   def update
     respond_to do |format|
       if @album.update(album_params)
@@ -79,8 +62,7 @@ class AlbumsController < ApplicationController
     end
   end
 
-  # DELETE /albums/1
-  # DELETE /albums/1.json
+
   def destroy
     @album.destroy
     respond_to do |format|

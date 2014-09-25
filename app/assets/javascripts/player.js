@@ -1,23 +1,14 @@
 $(function(){
 
+
+//js for multiple slide carousel
+ 
+//ends multiple slide carousel
+
 // playlist buttons 
 /* player 1: jukebox, player2:all audio, player3:video, player4:dailybread, player5:radio, player6:audio bible 
   /* myplaylist= audio juke box, myplaylist2= radio, myplaylist3= video */
 
-/*$.ajax({ 
-        type: 'GET',
-        url:window.location.pathname ,
-        dataType: "json",
-        success: function(json){
-          $.each(json.audios,function(index, audio){
-            $.each(audio, function(index, audio) {
-              var w=JSON.stringify(audio)
-              alert(w)
-              myPlaylist.add({title:(audio.name), m4a:(audio.audio.audio.url), artist:(audio.artist)});
-              });
-                 });
-              }
-           }); */
 $.ajax({ 
         type: 'GET',
         url:window.location ,
@@ -85,32 +76,28 @@ $.ajax({
 });
 
 
+ $('#myCarousel').carousel({
+  interval: 4000
+})
+
+$('.carousel .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+  
+  for (var i=0;i<2;i++) {
+    next=next.next();
+    if (!next.length) {
+      next = $(this).siblings(':first');
+    }
+    
+    next.children(':first-child').clone().appendTo($(this));
+  }
+});
 
 
-/*$('.play').on("click",function(){
-    $.ajax({ 
-        type: 'GET',
-        url:window.location.pathname ,
-        dataType: "json",
-        success: function(json){
-          alert("vanthidichi")
-              }
-           });
-  }); 
-
-/*$('.play').on("click",function(){
-  $(this).each(function(){
-    url=this.href 
-    $.getJSON(url,function(data){
-      $.each(data,function(data){ 
-            myPlaylist3.add()
-            myPlaylist3.add({title:$(this).attr("video_identifier"),m4v:$(this).attr("video_url")})
-             });
-         });
-      }); 
-      return false;
- });  
-*/
 
  $("#jquery_jplayer_1").bind($.jPlayer.event.setmedia, function(event) { 
   $("#jquery_jplayer_1").jPlayer("play");
@@ -240,6 +227,8 @@ height: "100%"
     $("#jplayer_inspector_3").jPlayerInspector({jPlayer:$("#jquery_jplayer_3")});
     $("#jplayer_inspector_4").jPlayerInspector({jPlayer:$("#jquery_jplayer_4")});
     $("#jplayer_inspector_6").jPlayerInspector({jPlayer:$("#jquery_jplayer_6")});
+
+
 
    
 });
