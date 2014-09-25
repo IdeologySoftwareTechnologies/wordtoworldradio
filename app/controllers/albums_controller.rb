@@ -13,7 +13,11 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
-       @album = Album.find(params[:id])
+    # Query for showing  slider
+      @album_first=Album.first
+      @album_first_id=@album_first.id
+      @albums_remain=Album.where('id NOT IN(?)', @album_first_id)
+      @album = Album.find(params[:id])
 
      if params[:search]
           @albums = Album.search(params[:search]).order("created_at DESC")

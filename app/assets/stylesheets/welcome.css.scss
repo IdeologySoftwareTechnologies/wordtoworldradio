@@ -31,6 +31,8 @@ img {
 .carousel-caption {
     z-index: 10;
 }
+
+
 .carousel-control {
   position: absolute;
   top: 0;
@@ -65,3 +67,6 @@ img {
 .carousel-inner .active.left { left: -25%; }
 .carousel-inner .next        { left:  25%; }
 .carousel-control.left,.carousel-control.right {background-image:none;}
+
+
+

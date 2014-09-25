@@ -68,16 +68,26 @@
   </div>
 </div>
 
+
+
+
+
+
+
+
+
 <div class="row">
 
 <div class="carousel slide" id="myCarousel" >
   <div class="carousel-inner" style="height:180px">
-    <% @albums.each do |album| %>
+    
     <div class="item active" >
-      <div class="col-lg-3"><a href="<%= album_path(album) %>"><%= image_tag album.cover_url , :class => "img-responsive" %></a></div>
+      <div class="col-lg-3"><a href="<%= album_path(@album_first) %>">
+      <%= image_tag @album_first.cover_url , :class => "img-responsive" %></a></div>
     </div>
+    <% @albums_remain.each do |album| %>
     <div class="item" >
-      <div class="col-lg-3"><a href="#"><img src="/assets/day-bg-inactive.png" class="img-responsive"></a></div>
+      <div class="col-lg-3"><a href="<%= album_path(album) %>"><%= image_tag album.cover_url , :class => "img-responsive" %></a></div>
     </div>
     <%end%>
     
@@ -86,7 +96,3 @@
   <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
 
 </div>
-
-
-
-
