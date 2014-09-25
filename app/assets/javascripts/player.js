@@ -75,7 +75,37 @@ $.ajax({
 
 });
 
+  var stream = {
+    title: "ideology",
+    mp3: "http://202.88.237.208:8000/;stream/1"
+  },
+  ready = false;
 
+  $("#jquery_jplayer_5").jPlayer({
+    ready: function (event) {
+      ready = true;
+      $(this).jPlayer("setMedia", stream);
+    },
+    pause: function() {
+      $(this).jPlayer("clearMedia");
+    },
+    error: function(event) {
+      if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+        // Setup the media stream again and play it.
+        $(this).jPlayer("setMedia", stream).jPlayer("play");
+      }
+    },
+    swfPath: "../js",
+    supplied: "mp3",
+    preload: "none",
+    wmode: "mobile",
+    keyEnabled: true
+    
+  });
+
+
+
+/* carousel ====================================================================================== */
  $('#myCarousel').carousel({
   interval: 4000
 })
@@ -96,6 +126,10 @@ $('.carousel .item').each(function(){
     next.children(':first-child').clone().appendTo($(this));
   }
 });
+
+/* carousel ====================================================================================== */
+
+
 
 
 
