@@ -13,6 +13,7 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
+
     <div class="item active">
 
       <%= image_tag "images (7).jpg"%>
@@ -23,6 +24,7 @@
     </div>
 
     <%@sliders.each do |slider|%>
+    
     <div class="item">
       <%= image_tag slider.slide_url(:thumb),:class => "img-responsive"%>
 
@@ -60,24 +62,14 @@
         </div>
         <div class="col-md-10">
          <%= contact.message %>
-
-        <!--<div align="right"> <%= contact.email %></div>-->
-      </div>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
 <div class="row">
-
+<center><h3>Jukebox</h3></center>
 <div class="carousel slide" id="myCarousel" >
   <div class="carousel-inner" style="height:180px">
     
@@ -94,5 +86,11 @@
   </div>
   <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+
+</div>
+
+<div >
+  <center><h3><%=link_to "Your daily Bread", daily_breads_path%></h3></center>
+  <%= image_tag "daily .jpg", class: "img-responsive"%>
 
 </div>
