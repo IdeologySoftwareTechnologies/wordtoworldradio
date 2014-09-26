@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require owl.carousel
+ *= require owl.theme
  
  */
  body {
@@ -25,6 +27,8 @@
  height: 300px;
  color: white;
 }
+
+
 
 
 
