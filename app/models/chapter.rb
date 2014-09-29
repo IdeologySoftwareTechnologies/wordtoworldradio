@@ -21,6 +21,8 @@
 #
 
 class Chapter < ActiveRecord::Base
+
+     validates :chapter_number,:bible_id,:chapter_image :presence => true
     extend FriendlyId
     friendly_id :slug_candidates, use: [:slugged, :finders]
     
@@ -54,7 +56,7 @@ class Chapter < ActiveRecord::Base
   def prev
     Chapter.where("id < ?", self.id).order("id DESC").first || Chapter.last
   end
-   validates :chapter_number,:bible_id, :presence => true
+   
 
 def bible_name
   "#{self.bible.name}".parameterize

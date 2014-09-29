@@ -1,15 +1,6 @@
 
 <p id="notice"><%= notice %></p>
 
-<style type="text/css">
-  body
-{
-  background-color: #CB8937;
-}
-</style>
-
-
-<div class="container">
 <div class="row">
    <div class="col-md-12">
      <% @videos.each do |video| %>
@@ -22,29 +13,33 @@
 <br>
 
 <div class="row">
-  <div class="col-md-4">
-  </div>
-
-  <div class="col-md-4">
+  <center>  
     <%= render "shared/video" %>
-  </div>
-
-  <div class="col-md-4">
-  </div>
+  </center>
 </div>
 
 <br>
 
- <div class="row">
-   <div class="col-md-12">
-     <% @videos.each do |video| %>
-          <td><%= link_to image_tag(video.video_url(:thumb)), video_path(video)%></td>
-    <% end %>
+
+
+<div class="row">
+  <% @videos_bottom_pagiantion.each do |video|  %>
+    <div class="col-xs-6 col-md-3">
+      <a class="thumbnail" href="<%= video_path(video) %>">
+      <%= video.name %>
+      <%= image_tag video.video_url(:thumb) , :class => "img-responsive" %></a>
+    </div>
+  <% end %>
   </div>
-  </div>
+
+<div class="row">
+<center>
+  <%= will_paginate @videos_bottom_pagiantion,renderer: BootstrapPagination::Rails, :page_links => false , remote: true %>
+  </center>
+</div>
+
 
 
  <div class="row">
 <%= render_shareable  %>
-</div>
 </div>

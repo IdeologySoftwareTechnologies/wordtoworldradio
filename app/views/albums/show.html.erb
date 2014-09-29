@@ -1,5 +1,8 @@
-
 <p id="notice"><%= notice %></p>
+<head>
+  <title>Juke Box</title>
+</head>
+
 <style type="text/css">
 body { background-color: #EBC053; }
       .img-responsive:hover{
@@ -100,12 +103,9 @@ body { background-color: #EBC053; }
 </div>
 
 <div class="row">
-  <%= render_shareable  %>
+  <%#= render_shareable  %>
 </div>
 
-
-
-
-
-
- 
+<div class="row">
+  <%= render "social" %>
+</div>
