@@ -28,3 +28,15 @@
 		</div>	
 </body>
 
+<audio id="audioplayer" preload controls loop style="width:424px;">
+<source src="http://107.155.111.170:8282/;">
+</audio>
+<script type="text/javascript">
+var audioTag = document.createElement('audio');
+if (!(!!(audioTag.canPlayType) && ("no" != audioTag.canPlayType("audio/mpeg")) && ("" != audioTag.canPlayType("audio/mpeg")))) {
+AudioPlayer.embed("audioplayer", {soundFile: "http://107.155.111.170:8282/;"});
+}
+</script>
+
+
+

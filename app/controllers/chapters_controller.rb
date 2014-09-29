@@ -5,6 +5,7 @@ class ChaptersController < ApplicationController
     @chapters = Chapter.all
     
   end
+
   def show
     @categories = Category.all   
 
@@ -14,6 +15,7 @@ class ChaptersController < ApplicationController
        @category = Category.find(params[:category_id].to_i)
        @bibles = @category.bibles.all 
     end
+
     if params[:search]
       @bibles = @bibles.where("name like ?", "%#{params[:search]}%") 
     end
@@ -30,8 +32,7 @@ class ChaptersController < ApplicationController
 
 
 
-  private   
-    
+private   
     def chapter_params
       params.require(:chapter).permit(:chapter_number, :chapter_image, :chapter_audio, :bible_id, :admin_id, :status)
     end 

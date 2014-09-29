@@ -1,0 +1,52 @@
+<!-- 
+
+                	  <ul>
+                                  <li class="xradiostream">http://83.169.60.45:80/;</li>  <!-- Shoutcast -->
+                              </ul>
+                         	  <ul>
+                                  <li class="xradiostream">http://107.155.111.170:8282/;</li>  <!-- Shoutcast -->
+                              </ul>
+                              <ul>
+                                  <li class="xradiostream">http://208.77.21.33:12310/;</li>  <!-- Shoutcast -->
+                              </ul>
+                              <ul>
+                                  <li class="xradiostream">http://108.61.30.179:4000/;</li>  <!-- Shoutcast -->
+                              </ul>
+                              <ul>
+                                  <li class="xradiostream">http://198.27.70.26:8130/;</li>  <!-- Shoutcast -->
+                              </ul>
+                        	  <ul>
+                                  <li class="xradiostream">http://95.141.24.3:80/;</li>  <!-- Shoutcast -->
+                              </ul>
+                          	  <ul>
+                                  <li class="xradiostream">http://74.50.122.103:9354/;</li>  <!-- Shoutcast -->
+                              </ul>                              
+                              <ul>
+                                  <li class="xradiostream">http://74.208.71.58:8000/;</li>   <!-- Shoutcast -->
+                              </ul> 
+                          	  <ul>
+                                  <li class="xradiostream">http://198.178.123.11:7746/;</li>  <!-- Shoutcast -->
+                              </ul>
+                              <ul>
+                                  <li class="xradiostream">http://91.250.77.13:9050/;</li>  <!-- Shoutcast -->
+                              </ul>
+                              <ul>
+                                  <li class="xradiostream">http://50.7.77.114:8430/;</li> <!-- Shoutcast -->
+                              </ul>
+                              
+
+                              <ul>
+                                  <li class="xradiostream">http://radio.skypherence.com:8000/radiomozart</li>    <!-- IceCast -->
+                                  <li class="xstation">Radio Mozart</li>
+                                  <li class="xcategory">Classic; Baroque</li>
+                              </ul>
+							  <ul>
+                                  <li class="xradiostream">http://87.230.59.20:80/iloveradio2.mp3</li>    <!-- IceCast -->
+                              </ul>
+                              <ul>
+                                  <li class="xradiostream">http://91.250.76.19:80/wunschradio.mp3</li>    <!-- IceCast -->
+                              </ul>
+ 							  <ul>
+                                  <li class="xradiostream">http://streaming.radionomy.com/ABC-Piano</li> <!-- radionomy.com -->
+                              </ul>
+                                      -->
