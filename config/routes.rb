@@ -3,19 +3,29 @@ Rails.application.routes.draw do
   resources :sliders
 
   resources :news
-  get 'friends/new'
+  #get 'friends/new'
   resources :mailbox   
   resources :friends  
   resources :contacts 
+
   resources :categories do
     resources :bibles do
       resources :chapters
     end
 end
+
+  resources :bibles do
+    resources :chapters
+  end
+
+  get 'radio/index'
+
   resources :audios 
+
   resources :albums do
     resources :audios  
   end
+
   resources :daily_breads
   resources :videos
   root 'welcome#index'

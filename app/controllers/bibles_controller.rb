@@ -7,6 +7,12 @@ class BiblesController < ApplicationController
   def show
     #redirect_to bible_chapters_path(@bible)  
   end  
+
+        redirect_to bible_chapters_path(@bible)
+  end
+
+  # GET /bibles/new
+
   def new
     redirect_to bibles_path
   end  

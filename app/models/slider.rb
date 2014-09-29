@@ -18,5 +18,8 @@
 
 class Slider < ActiveRecord::Base
 	mount_uploader :slide, SlideUploader
+	validates :name, presence: true
+    validates :description, presence: true
+    validates :slide, presence: true
   belongs_to :admin
 end

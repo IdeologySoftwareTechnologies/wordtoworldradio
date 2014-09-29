@@ -16,9 +16,6 @@
 <div class="row">
 
 <div class="col-md-4">
-</div>
-
-<div class="col-md-4">
   <div id="search_field" >
     <%= search_form_for @search,   :id => "search_form"  do |f| %>
       <div id="field">
@@ -27,27 +24,22 @@
         <% end %>
   </div>
 </div>
-
-<div class="col-md-4">
 </div>
 
-</div>
 <div class="row">
- <div class="col-md-offset-3">
+<center>
     <div class="image" >
       <% @daily_breads.each do |bread| %>
         <td><%= image_tag bread.message , :class=> "img-responsive"%></td>
       <% end %>
     </div>
-    </div>
+    </center>
 </div>
 
 
 <br>
+<center>
 <div class="row">
-  <div class="col-md-4">
-  </div>
-    <div class="col-md-4">
 <div id="jp_container_4" class="jp-video jp-video-270p">
       <div class="jp-type-playlist">
         <div id="jquery_jplayer_4" class="jp-jplayer"></div>
@@ -73,7 +65,6 @@
                
                 <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
                 <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-          
                 <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
                 <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
                 <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
@@ -93,12 +84,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-4">
-  </div>
-
 </div>
-
+</center>
 
 <%= render_shareable  %>
 

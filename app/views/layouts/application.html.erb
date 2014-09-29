@@ -14,7 +14,10 @@
     <%= render 'layouts/devices' %>
     <%#= javascript_include_tag "application" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%#= javascript_include_tag "autocomplete-rails.js"%>
+
+    <script type="text/javascript" src="jquery.touchSwipe.js"></script>
+    <link rel="stylesheet" href="/assets/owl.carousel.css" />
+
   </head>
   <body>    
   <div class="row">
@@ -26,7 +29,6 @@
           <%= render 'layouts/header' %>   
 
         </header>   
-
   <div class="main-container">  
     <div class="panel panel-success">
       <div class="panel-heading"><center>Title</center></div>
@@ -45,6 +47,8 @@
     </div>    
   </footer>
   
+  <script src="/assets/owl.carousel.min.js"></script>
+  <script src="/assets/owl.carousel.js"></script>
    </body>
 </html>
 

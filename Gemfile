@@ -16,8 +16,8 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'simple_form'
 gem 'friendly_id'
-#gem 'will_paginate'
-#gem 'will_paginate-bootstrap'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 gem 'carrierwave'
 gem 'devise'
 gem 'rails_admin'
@@ -28,8 +28,10 @@ gem 'jquery-turbolinks'
 gem 'carrierwave-video-thumbnailer'
 gem 'rmagick'
 gem 'shareable'
-#gem 'closure_tree'
+
 gem 'rails4-autocomplete'
+#gem 'closure_tree'
+gem 'owlcarousel-rails'
 
 
 
