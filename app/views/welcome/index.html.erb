@@ -123,11 +123,8 @@
       </div>
       <% @videos_remain.each do |video| %>
         <div class="item" >
-<<<<<<< HEAD
+
           <div class="col-lg-3"><a href="<%= video_path(video) %>"><%= image_tag video.video_url(:thumb) , :class => "img-responsive" %></a>
-=======
-          <div class="col-lg-3"><a href="<%= video_path(videos) %>"><%= image_tag videos.video_url , :class => "img-responsive" %></a>
->>>>>>> b53338ef10c18c33aa9d3f30892504ca4d296c79
           </div>
         </div>
       <%end%>
