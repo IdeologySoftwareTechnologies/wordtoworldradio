@@ -49,7 +49,11 @@
             <li><%= link_to 'Mailbox', mailbox_index_path %></li>
             <li><%= link_to "Jukebox" , albums_path %></li>
             <li><%= link_to "Daily bread" , daily_breads_path %></li>
-            <li><%= link_to "Audio bible" , bibles_path%></li> 
+            <% if Chapter.count == 0 %>
+            <li><%= link_to "Audio bible" , category_bibles_path(0)%></li> 
+            <%else%>
+           <li><%=link_to "Audio bible",category_bible_chapter_path(:category_id=> 0,:bible_id=>Bible.first,:id=>Chapter.first)%></li>
+            <%end%>
             <li><%= link_to "videos" , videos_path %></li>
             <li><%= link_to "Podcast" , root_path %></li>
           </ul>

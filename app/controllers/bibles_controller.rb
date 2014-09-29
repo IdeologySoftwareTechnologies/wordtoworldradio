@@ -1,45 +1,25 @@
 class BiblesController < ApplicationController
-  before_action :set_bible, only: [:show, :edit, :update, :destroy]
-
-  # GET /bibles
-  # GET /bibles.json
-  def index
-     
-    @bibles = Bible.search(params[:search])
-    
+  before_action :set_bible, only: [:show, :edit, :update, :destroy] 
+  
+  def index     
+    @bibles = Bible.search(params[:search])    
   end
-
-  # GET /bibles/1
-  # GET /bibles/1.json
   def show
-
-        redirect_to bible_chapters_path(@bible)
-   
-  end
-
-  # GET /bibles/new
+    #redirect_to bible_chapters_path(@bible)  
+  end  
   def new
     redirect_to bibles_path
-  end
-
-  # GET /bibles/1/edit
+  end  
   def edit
     redirect_to bibles_path 
-     end
-
+  end
   def update
     redirect_to bibles_path
   end
-
- 
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
+  private    
     def set_bible
       @bible = Bible.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+    end    
     def bible_params
       params.require(:bible).permit(:name, :bible_cover, :admin_id, :status)
     end

@@ -28,7 +28,7 @@ gem 'jquery-turbolinks'
 gem 'carrierwave-video-thumbnailer'
 gem 'rmagick'
 gem 'shareable'
-gem 'closure_tree'
+#gem 'closure_tree'
 gem 'rails4-autocomplete'
 
 

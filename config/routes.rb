@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   resources :mailbox   
   resources :friends  
   resources :contacts 
-  resources :bibles do
-    resources :chapters
-  end
+  resources :categories do
+    resources :bibles do
+      resources :chapters
+    end
+end
   resources :audios 
   resources :albums do
     resources :audios  

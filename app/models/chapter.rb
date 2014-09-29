@@ -42,7 +42,7 @@ class Chapter < ActiveRecord::Base
       slug.blank? || id_changed?
     end
 
-  belongs_to :bible, dependent: :destroy
+  belongs_to :bible
   belongs_to :admin
   mount_uploader :chapter_image,ChapterImageUploader
   mount_uploader :chapter_audio,ChapterAudioUploader
