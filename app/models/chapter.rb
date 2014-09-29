@@ -22,11 +22,10 @@
 
 class Chapter < ActiveRecord::Base
 
-     validates :chapter_number,:bible_id,:chapter_image :presence => true
     extend FriendlyId
     friendly_id :slug_candidates, use: [:slugged, :finders]
     
-
+   # validates :chapter_number:chapter_image :presence => true
   
     before_create :bible_name
  
@@ -44,7 +43,7 @@ class Chapter < ActiveRecord::Base
       slug.blank? || id_changed?
     end
 
-  belongs_to :bible, dependent: :destroy
+  belongs_to :bible
   belongs_to :admin
   mount_uploader :chapter_image,ChapterImageUploader
   mount_uploader :chapter_audio,ChapterAudioUploader

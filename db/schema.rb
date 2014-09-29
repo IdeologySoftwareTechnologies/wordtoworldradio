@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923091459) do
+ActiveRecord::Schema.define(version: 20140925115323) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -75,10 +75,19 @@ ActiveRecord::Schema.define(version: 20140923091459) do
     t.datetime "updated_at"
     t.integer  "parent_id"
     t.string   "slug"
+    t.integer  "bible_type"
+    t.integer  "category_id"
   end
 
   add_index "bibles", ["admin_id"], name: "index_bibles_on_admin_id"
+  add_index "bibles", ["category_id"], name: "index_bibles_on_category_id"
   add_index "bibles", ["slug"], name: "index_bibles_on_slug", unique: true
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "chapters", force: true do |t|
     t.integer  "chapter_number"

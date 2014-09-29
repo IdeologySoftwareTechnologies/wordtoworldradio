@@ -1,25 +1,23 @@
 
   <% if @chapter.id == @bible.chapters.first.id %>
-        <%if @bible.prev.chapters.count== 0 %>
-
-        <%= link_to bible_chapter_path(Bible.order(id: :desc).offset(1).first, @chapter.prev),class: "btn btn-default" do %>
-           <i class="glyphicon glyphicon-chevron-left"></i>
-        <% end %>
-
-        <%else%>
-
-             <%= link_to bible_chapter_path(@bible.prev, @chapter.prev),class: "btn btn-default" do %>
-              <i class="glyphicon glyphicon-chevron-left"></i>
-             <% end %>
-        <% end %>
+    <%if @bible.prev.chapters.count== 0 %>
+      <%= link_to category_bible_chapter_path(params[:category_id],Bible.order(id: :desc).offset(1).first, @chapter.prev),class: "btn btn-default" do %>
+        <i class="glyphicon glyphicon-chevron-left"></i>
+      <% end %>
+    <%elsif @chapter.id == @bibles.first.chapters.first.id%>
+      <%= link_to category_bible_chapter_path(params[:category_id],@bibles.last,@bibles.last.chapters.last),class: "btn btn-default" do %> 
+          <i class="glyphicon glyphicon-chevron-left"></i>
+      <% end %>
+    <%else%>
+      <%= link_to category_bible_chapter_path(params[:category_id],@bible.prev, @chapter.prev),class: "btn btn-default" do %>
+        <i class="glyphicon glyphicon-chevron-left"></i>
+      <% end %>
+    <% end %>
   <%else%>
-    <%= link_to bible_chapter_path(@bible, @chapter.prev),class: "btn btn-default" do %>
-     <i class="glyphicon glyphicon-chevron-left"></i>
-    
-   <%end%> 
+    <%= link_to category_bible_chapter_path(params[:category_id],@bible, @chapter.prev),class: "btn btn-default" do %>
+      <i class="glyphicon glyphicon-chevron-left"></i>
+    <%end%>    
+  <%end%>
 
-   
-<%end%>     
-
-
-         
+     
+ 

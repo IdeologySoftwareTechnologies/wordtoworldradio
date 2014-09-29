@@ -8,11 +8,18 @@ Rails.application.routes.draw do
   resources :friends  
   resources :contacts 
 
+  resources :categories do
+    resources :bibles do
+      resources :chapters
+    end
+end
+
   resources :bibles do
     resources :chapters
   end
 
   get 'radio/index'
+
   resources :audios 
 
   resources :albums do

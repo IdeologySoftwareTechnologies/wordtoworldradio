@@ -1,94 +1,39 @@
 class ChaptersController < ApplicationController
-  before_action :set_chapter, only: [:show, :edit, :update, :destroy]
-rescue_from ActiveRecord::RecordNotFound, with: :invalid_chapter
-  # GET /chapters
-  # GET /chapters.json
+  
+
   def index
     @chapters = Chapter.all
-    @bible = Bible.find(params[:bible_id])
-     @bibles = Bible.all
-      
+    
   end
-
-  # GET /chapters/1
-  # GET /chapters/1.json
   def show
-   @bibles = Bible.all
+    @categories = Category.all 
+    puts "==========================Catergory===========================",params[:category_id]
+    puts "===========================Bible==========================",params[:bible_id]
+    puts "============================Chapter=========================",params[:id]
+
+    if params[:category_id].to_i ==0
+       @bibles = Bible.search(params[:search])
+    else
+       @category = Category.find(params[:category_id].to_i)
+       @bibles = @category.bibles.all 
+    end
+     
+    @bible = Bible.find_by_slug(params[:bible_id])
+    @chapter = Chapter.find_by_slug(params[:id])
+
+    @chapters = @bible.chapters.all  
+    #@chapter = Chapter.find(params[:id])
+    #@bible = Bible.find(params[:bible_id])     
+  end
+
+
+
+
+
+
+  private   
     
-    @bible = Bible.find(params[:bible_id])
-    
-     @chapters = Chapter.all
-
-
-  end
-
-  # GET /chapters/new
-  def new
-    @chapter = Chapter.new
-    @bible = Bible.find(params[:bible_id])
-  end
-
-  # GET /chapters/1/edit
-  def edit
-    @bible = Bible.find(params[:bible_id])
-  end
-
-  # POST /chapters
-  # POST /chapters.json
-  def create
-    @chapter = Chapter.new(chapter_params)
-   @bible = Bible.find(params[:bible_id])
-
-    respond_to do |format|
-      if @chapter.save
-        format.html { redirect_to @chapter, notice: 'Chapter was successfully created.' }
-        format.json { render :show, status: :created, location: @chapter }
-      else
-        format.html { render :new }
-        format.json { render json: @chapter.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /chapters/1
-  # PATCH/PUT /chapters/1.json
-  def update
-    @bible = Bible.find(params[:bible_id])
-    respond_to do |format|
-      if @chapter.update(chapter_params)
-        format.html { redirect_to @chapter, notice: 'Chapter was successfully updated.' }
-        format.json { render :show, status: :ok, location: @chapter }
-      else
-        format.html { render :edit }
-        format.json { render json: @chapter.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /chapters/1
-  # DELETE /chapters/1.json
-  def destroy
-    @bible = Bible.find(params[:bible_id])
-    @chapter.destroy
-    respond_to do |format|
-      format.html { redirect_to chapters_url, notice: 'Chapter was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_chapter
-      @chapter = Chapter.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
     def chapter_params
       params.require(:chapter).permit(:chapter_number, :chapter_image, :chapter_audio, :bible_id, :admin_id, :status)
-    end
-
-    def invalid_chapter
-      logger.error "Attempt to access invalid chapter #{params[:id]}"
-      redirect_to bible_chapters_path, notice: 'Invalid chapter'
-    end
+    end 
 end

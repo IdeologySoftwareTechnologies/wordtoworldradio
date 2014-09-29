@@ -75,7 +75,7 @@ $.ajax({
 
 });
 
-  var stream = {
+var stream = {
     title: "ideology",
     mp3: "http://202.88.237.208:8000/;stream/1"
   },
@@ -104,11 +104,79 @@ $.ajax({
   });
 
 
+  $('#carousel-example-generic-mobile').swipe( {
+    swipeLeft: function() {
+        $(this).carousel('next');
+    },
+    swipeRight: function() {
+        $(this).carousel('prev');
+    },
+    allowPageScroll: 'vertical'
+});
+
+  $('#owl-demo').owlCarousel({
+    loop:true,
+    margin:10,
+
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+});
+
+  $('#owl-demo1').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+});
+
+  $('#owl-demo-videos').owlCarousel({
+    loop:true,
+    margin:10,
+    autoPlay: true,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+});
+
+
 
 /* carousel ====================================================================================== */
  $('#myCarousel').carousel({
   interval: 4000
-})
+});
+ $('#myCarouselVideo').carousel({
+  interval: 4000
+});
+ 
 
 $('.carousel .item').each(function(){
   var next = $(this).next();
@@ -127,7 +195,7 @@ $('.carousel .item').each(function(){
   }
 });
 
-/* carousel ====================================================================================== */
+
 
 
 

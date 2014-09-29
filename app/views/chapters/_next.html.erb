@@ -1,22 +1,32 @@
 
-  <% if @chapter.id == @bible.chapters.last.id%>
-  <% puts "======================chapter 1========#{@chapter.id}================================="%>
-        <% if @bible.next.chapters.count == 0 %>
-        <% puts "===================Bible 1============#{Bible.first.id}================================="%>
-        <% @first_bible = Bible.first%>
-            <%= link_to bible_chapter_path(@first_bible,@first_bible.chapters.first),class: "btn btn-default pull-right" do %> 
-                 <i class="glyphicon glyphicon-chevron-right"></i>
-            <% end %>
-        <%else%>
-        <% puts "======================chapter 2========#{@chapter.id}================================="%>
-            <%= link_to bible_chapter_path(@bible.next,@chapter.next),class: "btn btn-default pull-right" do %> 
-        	   <i class="glyphicon glyphicon-chevron-right"></i>
-        	<% end %>
-        <%end%>
-  <%else%>
-  <% puts "===================Bible 2============#{@bible}================================="%>
-     <%= link_to bible_chapter_path(@bible,@chapter.next),class: "btn btn-default pull-right" do %> 
+<%# if @chapter.id == Category.last.bibles.last.chapters.last.id%>
+  <%#= link_to category_bible_chapter_path(1,@bible.next,@chapter.next),class: "btn btn-default pull-right" do %> 
+    <!--<i class="glyphicon glyphicon-chevron-right"></i>-->
+  <%# end %>
+<%#else%>
+  <% if @chapter.id == @bible.chapters.last.id %> 
+    <% if @bible.next.chapters.count == 0 %>            
+      
+      <%#= link_to category_bible_chapter_path(params[:category_id],@first_bible,@first_bible.chapters.first),class: "btn btn-default pull-right" do %> 
+          <i class="glyphicon glyphicon-chevron-right"></i>
+      <%# end %>
+    <%elsif @chapter.id == @bibles.last.chapters.last.id %> 
+      <%= link_to category_bible_chapter_path(params[:category_id],@bibles.first,@bibles.first.chapters.first),class: "btn btn-default pull-right" do %> 
         <i class="glyphicon glyphicon-chevron-right"></i>
-     <% end %>      
+      <% end %>           
+      <%else%>
+        <%= link_to category_bible_chapter_path(params[:category_id],@bible.next,@chapter.next),class: "btn btn-default pull-right" do %> 
+          <i class="glyphicon glyphicon-chevron-right"></i>
+        <% end %>
+    <%end%>
+  <%else%>     
+    <%= link_to category_bible_chapter_path(params[:category_id],@bible,@chapter.next),class: "btn btn-default pull-right" do %> 
+      <i class="glyphicon glyphicon-chevron-right"></i>
+    <% end %>
   <%end%>
+<%#end%>
+
+
+
+
 

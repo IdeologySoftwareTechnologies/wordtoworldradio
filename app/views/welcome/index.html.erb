@@ -1,94 +1,145 @@
 
-<div class="row">
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+
+<div class="row visible-lg" >
+  <div id="carousel-example-generic-mobile" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-
-      <%= image_tag "images (7).jpg"%>
-
-      <div class="carousel-caption">
-        ...
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic-mobile" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic-mobile" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic-mobile" data-slide-to="2"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= image_tag "images (7).jpg"%>
+        <div class="carousel-caption">
+          ...
+        </div>
       </div>
+      <%@sliders.each do |slider|%>
+        <div class="item">
+          <%= image_tag slider.slide_url(:thumb),:class => "img-responsive"%>
+          <div class="carousel-caption">
+            <h3><%= slider.name%></h3>
+          </div>
+        </div>
+      <%end%>
     </div>
-
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic-mobile" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic-mobile" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+</div>
+<!--Slider for smaller devices -->
+<div class="row hidden-lg">
+  <div id="owl-demo1" class="owl-carousel owl-theme">
     <%@sliders.each do |slider|%>
     <div class="item">
       <%= image_tag slider.slide_url(:thumb),:class => "img-responsive"%>
     
       <div class="carousel-caption">
-        ...
+      <div class="item">
+        <div style="position:absolute; z-index:1;left:20%;top:70%;color:white"><h4><%= slider.name%></h4></div>
+        <a href="<%= slider_path(slider) %>"><%= image_tag slider.slide_url(:thumb),:class => "img-responsive"%></a>
       </div>
-    </div>
-
     <%end%>
-
   </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
 </div>
-</div>
-
+<!--Prayer Requests -->
 <div class="row" style="border:solid 1px; background-color:#FFE2AA">
   <center><h3>Prayer requests</h3></center>
   <div class="col-md-3">
-    <p><%= link_to image_tag('/assets/mail.jpg'), new_contact_path(contact_type: 1) %></p>
+    <p><%= link_to image_tag('mail.jpg'), new_contact_path(contact_type: 1),:class => "img-responsive" %>
+    </p>
   </div>
   <div class="col-md-9">
     <% @prayerreq.each do |contact| %>
       <div class="row" >
-      <div class="col-md-2">
-
-        <p><b> <%= contact.name %></b></p>
+        <div class="col-md-2">
+          <p><b> <%= contact.name %></b></p>
         </div>
         <div class="col-md-10">
-         <%= contact.message %>
-
-        <!--<div align="right"> <%= contact.email %></div>-->
-      </div>
+          <%= contact.message %>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-<div class="row">
-
-<div class="carousel slide" id="myCarousel" >
-  <div class="carousel-inner" style="height:180px">
-    
-    <div class="item active" >
-      <div class="col-lg-3"><a href="<%= album_path(@album_first) %>">
-      <%= image_tag @album_first.cover_url , :class => "img-responsive" %></a></div>
-    </div>
-    <% @albums_remain.each do |album| %>
-    <div class="item" >
-      <div class="col-lg-3"><a href="<%= album_path(album) %>"><%= image_tag album.cover_url , :class => "img-responsive" %></a></div>
-    </div>
-    <%end%>
-    
+<!-- Slider for listing albums-->
+<div class="hidden-lg">
+  <div id="owl-demo" class="owl-carousel">
+    <% @albums.each do |album| %>
+      <div class="item"> <a href="<%= album_path(album) %>"><%= image_tag album.cover_url , :class => "img-responsive" %></a><center><%= album.name%></center>
+      </div>
+    <%end%> 
   </div>
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-
 </div>
+
+<div class="row visible-lg" >
+  <center><h3>Jukebox</h3></center>
+  <% if @albums.count==0 %>
+    <center><h3>No Albums</h3></center>
+  <%else%><% @album_first_id=@album_first.id
+    @albums_remain=Album.where('id NOT IN(?)', @album_first_id) %>
+  <div class="carousel slide" id="myCarousel" >
+    <div class="carousel-inner" style="height:180px">
+      <div class="item active" >
+        <div class="col-lg-3"><a href="<%= album_path(@album_first) %>">
+          <%= image_tag @album_first.cover_url , :class => "img-responsive" %></a>
+        </div>
+      </div>
+      <% @albums_remain.each do |album| %>
+        <div class="item" >
+          <div class="col-lg-3"><a href="<%= album_path(album) %>"><%= image_tag album.cover_url , :class => "img-responsive" %></a>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+  </div>
+  <% end %>
+</div>
+
+<div >
+  <center><h3><%=link_to "Your daily Bread", daily_breads_path%></h3></center>
+  <%= image_tag "daily .jpg", class: "img-responsive"%>
+</div>
+<!-- Slider for listing videos-->
+<div class="row visible-lg" >
+  <center><h3>Videos</h3></center>
+  <% if @videos.count==0 %>
+    <center><h3>No Videos</h3></center>
+  <%else%>
+  <% @video_first_id=@video_first.id
+    @videos_remain=Video.where('id NOT IN(?)', @video_first_id)%>
+  <div class="carousel slide" id="myCarouselVideo" >
+    <div class="carousel-inner" style="height:180px">
+    <%= puts "================else=============="%>
+      <div class="item active" >
+        <div class="col-lg-3"><a href="<%= video_path(@video_first) %>">
+          <%= image_tag @video_first.video_url(:thumb) , :class => "img-responsive" %></a>
+        </div>
+      </div>
+      <% @videos_remain.each do |videos| %>
+        <div class="item" >
+          <div class="col-lg-3"><a href="<%= video_path(videos) %>"><%= image_tag videos.video_url , :class => "img-responsive" %></a>
+          </div>
+        </div>
+      <%end%>
+    
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+  </div>
+  <% end %>
+</div>
+
+  
+

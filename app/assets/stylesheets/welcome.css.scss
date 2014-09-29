@@ -1,6 +1,32 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#owl-demo1 .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+#owl-demo .item{
+  margin: 3px;
+
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+  
+}
+
+#owl-demo-videos .item{
+  margin: 3px;
+
+}
+#owl-demo-videos .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+  
+}
 .carousel {
     height: 100%;
     width: 100%;
@@ -62,6 +88,24 @@ img {
   float: left;
   overflow: auto;
 
+}
+
+.owl-theme .owl-controls .owl-nav [class*=owl-] {
+color: #fff;
+font-size: 14px;
+margin: 5px;
+padding: 4px 7px;
+background: #d6d6d6;
+display: inline-block;
+cursor: pointer;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+
+.owl-theme .owl-dots .owl-dot {
+display: inline-block;
+zoom: 1;
 }
 
 .carousel-inner .active.left { left: -25%; }
