@@ -153,23 +153,7 @@ var stream = {
 
   
 
- /* $('#owl-demo-videos').owlCarousel({
-    loop:true,
-    margin:10,
-    autoPlay: true,
-    nav:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:5
-        }
-    }
-});*/
+ 
 
 
 
@@ -177,9 +161,7 @@ var stream = {
  $('#myCarousel').carousel({
   interval: 4000
 });
-/* $('#myCarouselVideo').carousel({
-  interval: 4000
-});*/
+
  
 
 $('.carousel .item').each(function(){
