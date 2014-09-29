@@ -6,18 +6,17 @@ class ChaptersController < ApplicationController
     
   end
   def show
-    @categories = Category.all 
-    puts "==========================Catergory===========================",params[:category_id]
-    puts "===========================Bible==========================",params[:bible_id]
-    puts "============================Chapter=========================",params[:id]
+    @categories = Category.all   
 
     if params[:category_id].to_i ==0
-       @bibles = Bible.search(params[:search])
+       @bibles = Bible.all
     else
        @category = Category.find(params[:category_id].to_i)
        @bibles = @category.bibles.all 
     end
-     
+    if params[:search]
+      @bibles = @bibles.where("name like ?", "%#{params[:search]}%") 
+    end
     @bible = Bible.find_by_slug(params[:bible_id])
     @chapter = Chapter.find_by_slug(params[:id])
 
