@@ -29,8 +29,7 @@ gem 'carrierwave-video-thumbnailer'
 gem 'rmagick'
 gem 'shareable'
 
-gem 'rails4-autocomplete'
-#gem 'closure_tree'
+gem 'closure_tree'
 gem 'owlcarousel-rails'
 
 

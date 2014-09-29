@@ -20,11 +20,11 @@
               
               <li><%=link_to "All", category_bible_chapter_path(:category_id=> 0,:bible_id=>Bible.first,:id=>Chapter.first)%></li>
               <% if Category.first.bibles.count!=0%>
-                <li><%=link_to "old", category_bible_chapter_path(:category_id=> 1,:bible_id=>Category.first.bibles.first,:id=>Category.first.bibles.first.chapters.first)%></li>
+                <li><%=link_to "india", category_bible_chapter_path(:category_id=> 1,:bible_id=>Category.first.bibles.first,:id=>Category.first.bibles.first.chapters.first)%></li>
               <%end%>
               
               <%if Category.last.bibles.count!=0 %>
-              <li><%=link_to "new", category_bible_chapter_path(:category_id=> 2,:bible_id=>Category.last.bibles.first,:id=>Category.last.bibles.first.chapters.first)%></li>
+              <li><%=link_to "Us", category_bible_chapter_path(:category_id=> 2,:bible_id=>Category.last.bibles.first,:id=>Category.last.bibles.first.chapters.first)%></li>
               
 
               <%end%>

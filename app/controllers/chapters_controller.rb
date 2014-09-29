@@ -31,7 +31,6 @@ class ChaptersController < ApplicationController
 
 
 
-
   private   
     
     def chapter_params
