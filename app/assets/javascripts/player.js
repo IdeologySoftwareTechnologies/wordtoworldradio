@@ -114,23 +114,7 @@ var stream = {
     allowPageScroll: 'vertical'
 });
 
-  $('#owl-demo1').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:1
-        },
-        1000:{
-            items:1
-        }
-    }
-});
-
+  
   $('#owl-demo').owlCarousel({
     loop:true,
     margin:10,
@@ -149,9 +133,27 @@ var stream = {
     }
 });
 
+  $('#owl-demo1').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+});
+
+
   
 
-  $('#owl-demo-videos').owlCarousel({
+ /* $('#owl-demo-videos').owlCarousel({
     loop:true,
     margin:10,
     autoPlay: true,
@@ -167,7 +169,7 @@ var stream = {
             items:5
         }
     }
-});
+});*/
 
 
 
@@ -175,9 +177,9 @@ var stream = {
  $('#myCarousel').carousel({
   interval: 4000
 });
- $('#myCarouselVideo').carousel({
+/* $('#myCarouselVideo').carousel({
   interval: 4000
-});
+});*/
  
 
 $('.carousel .item').each(function(){
