@@ -1,6 +1,8 @@
 
 <%= render 'chapter'%>
+
 &nbsp;
+<div class="rowheight">
 <div class="row  book">
   
    <div class="col-md-1">
@@ -19,7 +21,7 @@
       <% if @bible.chapters.count == 0 %>      
         <%= image_tag "images.png" %>
         <%else%>       
-       <%= image_tag @chapter.chapter_image_url, class: "img-responsive" %>
+       <%= image_tag @chapter.chapter_image_url, class: "img-responsive", height: "60%" %>
        <%end%>
        <%= render 'next'%>
       <%= render 'prev'%>     
@@ -31,6 +33,7 @@
   <div class="col-md-1">
   </div>
  
+</div>
 </div>
 
 <div class="row">
@@ -85,7 +88,6 @@
   </div>
   <div class="col-md-4">
   </div>
-
 </div>
 
 

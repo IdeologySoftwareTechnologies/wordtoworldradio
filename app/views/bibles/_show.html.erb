@@ -19,7 +19,7 @@
         <% @bible.chapters.order(:chapter_number).in_groups_of(4, false) do |row_chapter| %>
             <% for chapter in row_chapter %>
             <%#= @last_chapter = row_chapter.last.id %>
-           <%= link_to chapter.chapter_number ,bible_chapter_path(@bible,chapter) %>
+           <%= link_to chapter.chapter_number ,category_bible_chapter_path(1,@bible,chapter) %>
             <% end %>
         <% end %>
        

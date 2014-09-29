@@ -9,16 +9,21 @@
 #  status      :boolean
 #  created_at  :datetime
 #  updated_at  :datetime
-#  parent_id   :integer
 #  slug        :string(255)
+#  bible_type  :integer
+#  category_id :integer
 #
 # Indexes
 #
-#  index_bibles_on_admin_id  (admin_id)
-#  index_bibles_on_slug      (slug) UNIQUE
+#  index_bibles_on_admin_id     (admin_id)
+#  index_bibles_on_category_id  (category_id)
+#  index_bibles_on_slug         (slug) UNIQUE
 #
 
 class Bible < ActiveRecord::Base
+  validates :name, :presence => true
+  has_many :chapters, dependent: :destroy
+  belongs_to :category, dependent: :destroy
   extend FriendlyId
     friendly_id :slug_candidates, use: [:slugged, :finders]
 
@@ -35,17 +40,12 @@ class Bible < ActiveRecord::Base
     end
 
 
-	acts_as_tree dependent: :destroy
-	has_many :chapters
+	
+	
   belongs_to :admin
   mount_uploader :bible_cover,BibleCoverUploader
-  def self.search(search)
-    if search
-      where("name like?","#{search}")
-    else
-      all
-    end
-  end
+ 
+
   def next
     Bible.where("id > ?", self.id).order("id ASC").first || Bible.first 
   end
@@ -54,7 +54,18 @@ class Bible < ActiveRecord::Base
     Bible.where("id < ?", self.id).order("id DESC").first || Bible.last
   end
 
-  validates :name, :presence => true
+  
+
+
+  def self.search(search)
+        if search
+             where("name like ?", "%#{search}%") 
+        else
+            all
+        end
+  end
+
+
 
   
 end

@@ -1,67 +1,81 @@
-<div class="row b">
+
+<div class="row ">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-      <div class="row">
-        <div class="col-md-7 "> 
+    <div class="row">
+      <div class="col-md-7">
+      <%= form_tag(category_bible_chapter_path(0,params[:bible_id],params[:id]), method:  "get", id: "search-form") do %>
+         <%= text_field_tag :search, params[:search], placeholder: "Search bibles" %>
+          <%#= submit_tag "Search", :name => nil %>
+      <% end %>
+          <div class="btn-group">           
+              <button type="button" class="btn btn-default">
+                <%= "-------Select Type-------" %>
+              </button>
+              <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+              
+              <li><%=link_to "All", category_bible_chapter_path(:category_id=> 0,:bible_id=>Bible.first,:id=>Chapter.first)%></li>
+              <% if Category.first.bibles.count!=0%>
+                <li><%=link_to "india", category_bible_chapter_path(:category_id=> 1,:bible_id=>Category.first.bibles.first,:id=>Category.first.bibles.first.chapters.first)%></li>
+              <%end%>
+              
+              <%if Category.last.bibles.count!=0 %>
+              <li><%=link_to "Us", category_bible_chapter_path(:category_id=> 2,:bible_id=>Category.last.bibles.first,:id=>Category.last.bibles.first.chapters.first)%></li>
+              
 
+              <%end%>
+              <%# @categories.each do |category| %>
 
-
-        <div class="btn-group">
-  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-    <%= @bible.name%> <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li><%if @bibles.count!=0 %>
-                    <% @bibles.in_groups_of(3, false) do |row_bible| %>   
-                        <% row_bible.each do |bible|%>
-                            <%unless bible.chapters.count== 0%>
-                                <% @first_chapter = bible.chapters.first %>
-                                <li><%=link_to bible.name,bible_chapter_path(bible , @first_chapter)%></li>
-                            <%else%>
-                                <li><%=link_to bible.name, bible_chapters_path(bible)%>
-                                
-                                </li>
-                            <%end%>                          
-                        <%end%>
-                    <%end%>
-                <%else%>
-                Nothing found
-                <%end%></li>
-   
-  </ul>
-</div>
-</div>
-
-
-
-
-
-
-        
-          
-               
-        <div class="col-md-5">
-        
-          <%#= render 'bibles/recoment'%>
-
-
-
+                <li><%#=link_to category.name, category_bible_chapter_path(:category_id=> category.id,:bible_id=>Category.last.bibles.first,:id=>Category.last.bibles.first.chapters.first)%></li>
+              <%#end%>              
+              </ul>
+          </div>
           <div class="btn-group">
-  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-   <%= @chapter.chapter_number%> <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-   <li><%= render 'bibles/show'%></li>
-  </ul>
-</div>
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+              <%= @bible.name%> <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+              <ul class="dropdown-menu" role="menu">
+                 <%#= form_tag(bibles_path, method:  "get", id: "search-form") do %>
+                   <%#= text_field_tag :search, params[:search], placeholder: "Search bibles" %>
+                    <%#= submit_tag "Search", :name => nil %>
+                 <%# end %>
+                <li>
 
-
-
-
+        <%if @bibles.count!=0 %>          
+        <% @bibles.each do |bible| %>
+        <%unless bible.chapters.count== 0%>
+          <% @first_chapter = bible.chapters.first %>
           
-        </div>
+          <li><%=link_to bible.name,category_bible_chapter_path(params[:category_id],bible,@first_chapter)%></li>
+          <%else%>
+                <li><%#=link_to bible.name, category_bible_chapters_path(:category_id,bible,@first_chapter)%>                
+        <%end%>
+        <%end%>
+        <%else%>
+            Nothing found                       
+        <%end%>             
+                    
+                </li>   
+              </ul>
+          </div>
+      </div>              
+      <div class="col-md-5">  
+          <div class="btn-group">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+             <%= @chapter.chapter_number%> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+             <li><%= render 'bibles/show'%></li>
+            </ul>
+          </div>          
       </div>
-    </div>    
+    </div>
+  </div>    
     <div class="col-md-2" >      
     </div>
 </div>
