@@ -80,7 +80,7 @@
   <% if @albums.count==0 %>
     <center><h3>No Albums</h3></center>
   <%else%><% @album_first_id=@album_first.id
-    @albums_remain=Album.where('id NOT IN(?)', @album_first_id) %>
+    @albums_remain=@albums.where('id NOT IN(?)', @album_first_id) %>
   <div class="carousel slide" id="myCarousel" >
     <div class="carousel-inner" style="height:180px">
       <div class="item active" >
@@ -112,18 +112,18 @@
     <center><h3>No Videos</h3></center>
   <%else%>
   <% @video_first_id=@video_first.id
-    @videos_remain=Video.where('id NOT IN(?)', @video_first_id)%>
+    @videos_remain=@videos.where('id NOT IN(?)', @video_first_id)%>
   <div class="carousel slide" id="myCarouselVideo" >
     <div class="carousel-inner" style="height:180px">
     <%= puts "================else=============="%>
       <div class="item active" >
         <div class="col-lg-3"><a href="<%= video_path(@video_first) %>">
-          <%= image_tag @video_first.video_url , :class => "img-responsive" %></a>
+          <%= image_tag @video_first.video_url(:thumb) , :class => "img-responsive" %></a>
         </div>
       </div>
-      <% @videos_remain.each do |videos| %>
+      <% @videos_remain.each do |video| %>
         <div class="item" >
-          <div class="col-lg-3"><a href="<%= video_path(videos) %>"><%= image_tag video.video_url , :class => "img-responsive" %></a>
+          <div class="col-lg-3"><a href="<%= video_path(video) %>"><%= image_tag video.video_url(:thumb) , :class => "img-responsive" %></a>
           </div>
         </div>
       <%end%>
@@ -134,6 +134,8 @@
   </div>
   <% end %>
 </div>
+
+
 
   
 
