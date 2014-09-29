@@ -1,4 +1,6 @@
 
+
+
 <div class="row visible-lg" >
   <div id="carousel-example-generic-mobile" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -37,6 +39,10 @@
 <div class="row hidden-lg">
   <div id="owl-demo1" class="owl-carousel owl-theme">
     <%@sliders.each do |slider|%>
+    <div class="item">
+      <%= image_tag slider.slide_url(:thumb),:class => "img-responsive"%>
+    
+      <div class="carousel-caption">
       <div class="item">
         <div style="position:absolute; z-index:1;left:20%;top:70%;color:white"><h4><%= slider.name%></h4></div>
         <a href="<%= slider_path(slider) %>"><%= image_tag slider.slide_url(:thumb),:class => "img-responsive"%></a>
