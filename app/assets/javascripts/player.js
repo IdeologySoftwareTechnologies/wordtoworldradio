@@ -117,6 +117,7 @@ var stream = {
   $('#owl-demo').owlCarousel({
     loop:true,
     margin:10,
+
     nav:true,
     responsive:{
         0:{
@@ -171,9 +172,7 @@ $('.carousel .item').each(function(){
 });
 
 
-$('#myCarousel').carousel({
-  interval: 4000
-});
+
 
 
 
