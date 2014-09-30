@@ -1,6 +1,8 @@
 $(function(){
 
 
+
+
 //js for multiple slide carousel
  
 //ends multiple slide carousel
@@ -181,6 +183,17 @@ $('.carousel .item').each(function(){
   }
 });
 
+/*================radio code==============================*/
+ $('#audio-player').mediaelementplayer({
+            alwaysShowControls: true,
+            features: ['playpause','volume','progress'],
+            audioVolume: 'horizontal',
+            audioWidth: 400,
+            audioHeight: 120
+        });
+
+
+/*================ end of radio code==============================*/
 
 
 
