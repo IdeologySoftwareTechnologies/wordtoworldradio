@@ -7,18 +7,14 @@
     <li data-target="#carousel-example-generic-mobile" data-slide-to="1"></li>
     <li data-target="#carousel-example-generic-mobile" data-slide-to="2"></li>
   </ol>
-
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-
       <%= image_tag "images (7).jpg"%>
-
       <div class="carousel-caption">
         ...
       </div>
     </div>
-
     <%@sliders.each do |slider|%>
     <div class="item">
       <%= image_tag slider.slide_url(:thumb),:class => "img-responsive"%>
@@ -28,7 +24,6 @@
     </div>
     <%end%>
   </div>
-
   <!-- Controls -->
   <a class="left carousel-control" href="#carousel-example-generic-mobile" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -38,6 +33,8 @@
   </a>
 </div>
 </div>
+
+
 
 <div class="row hidden-lg">
 <div id="owl-demo1" class="owl-carousel owl-theme">
@@ -71,7 +68,11 @@
   </div>
 </div>
 
-
+<% if @albums.count==0%>
+<div><center><h4>No Albums</h4></center></div>
+<% else %>
+<% @album_first_id=@album_first.id %>
+<% @albums_remain=@albums.where('id NOT IN(?)', @album_first_id) %>    
 <div class="hidden-lg">
 <div id="owl-demo" class="owl-carousel">
 <% @albums.each do |album| %>
@@ -79,6 +80,7 @@
  <%end%> 
 </div>
 </div>
+
 
 <div class="row visible-lg" >
 <center><h3>Jukebox</h3></center>
@@ -100,6 +102,8 @@
   <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
 
 </div>
+<% end %>
+</div>
 
 <div >
   <center><h3><%=link_to "Your daily Bread", daily_breads_path%></h3></center>
@@ -107,31 +111,17 @@
 
 </div>
 <!-- Slider for listing videos-->
-<div class="row visible-lg" >
-  <center><h3>Videos</h3></center>
-  <% if @videos.count==0 %>
-    <center><h3>No Videos</h3></center>
-  <%else%>
-  <% @video_first_id=@video_first.id
-    @videos_remain=Video.where('id NOT IN(?)', @video_first_id)%>
-  <div class="carousel slide" id="myCarouselVideo" >
-    <div class="carousel-inner" style="height:180px">
-    <%= puts "================else=============="%>
-      <div class="item active" >
-        <div class="col-lg-3"><a href="<%= video_path(@video_first) %>">
-          <%= image_tag @video_first.video_url(:thumb) , :class => "img-responsive" %></a>
-        </div>
-      </div>
-      <% @videos_remain.each do |videos| %>
-        <div class="item" >
-          <div class="col-lg-3"><a href="<%= video_path(videos) %>"><%= image_tag videos.video_url , :class => "img-responsive" %></a>
-          </div>
-        </div>
-      <%end%>
-    
-    </div>
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-  </div>
-  <% end %>
+<div>
+<%if @videos.count==0%>
+<h3>No videos</h3>
+<%else%>
+<div id="owl-demo-video" class="owl-carousel">
+    <% @videos.each do |video| %>
+    <div class="item"> <a href="<%= video_path(video) %>"><%= image_tag video.video_url(:thumb) , :class => "img-responsive" %></a><center><%= video.name%></center> </div>
+    <%end%> 
 </div>
+<%end%>
+</div>
+
+
+

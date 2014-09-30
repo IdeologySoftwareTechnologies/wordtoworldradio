@@ -8,8 +8,7 @@ class WelcomeController < ApplicationController
     @videos = Video.all
     @video_first=Video.first
   	@album_first=Album.first
-  	@album_first_id=@album_first.id
-  	@albums_remain=Album.where('id NOT IN(?)', @album_first_id)
+  	
 
 
   end

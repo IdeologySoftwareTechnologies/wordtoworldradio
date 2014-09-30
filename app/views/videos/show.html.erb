@@ -1,12 +1,17 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="row">
+<!--<div class="row">
    <div class="col-md-12">
      <% @videos.each do |video| %>
           <td><%= link_to image_tag(video.video_url(:thumb)), video_path(video)%></td>
     <% end %>
   </div>
+</div>-->
+<div id="owl-demo-video" class="owl-carousel">
+    <% @videos.each do |video| %>
+    <div class="item"> <a href="<%= video_path(video) %>"><%= image_tag video.video_url(:thumb) , :class => "img-responsive" %></a><center><%= video.name%></center> </div>
+    <%end%> 
 </div>
 
 
