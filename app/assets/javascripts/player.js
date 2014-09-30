@@ -1,6 +1,8 @@
 $(function(){
 
 
+
+
 //js for multiple slide carousel
  
 //ends multiple slide carousel
@@ -114,10 +116,13 @@ var stream = {
     allowPageScroll: 'vertical'
 });
 
+
+  
   $('#owl-demo').owlCarousel({
     loop:true,
     margin:10,
-
+    autoplay: true,
+    autoplayTimeout: 2000,
     nav:true,
     responsive:{
         0:{
@@ -127,7 +132,7 @@ var stream = {
             items:3
         },
         1000:{
-            items:5
+            items:4
         }
     }
 });
@@ -135,6 +140,8 @@ var stream = {
   $('#owl-demo1').owlCarousel({
     loop:true,
     margin:10,
+    autoplay: true,
+    autoplayTimeout: 2000,
     nav:true,
     responsive:{
         0:{
@@ -149,10 +156,11 @@ var stream = {
     }
 });
 
-  $('#owl-demo-videos').owlCarousel({
+  $('#owl-demo-video').owlCarousel({
     loop:true,
     margin:10,
-    autoPlay: true,
+    autoplay: true,
+    autoplayTimeout: 2000,
     nav:true,
     responsive:{
         0:{
@@ -162,10 +170,15 @@ var stream = {
             items:3
         },
         1000:{
-            items:5
+            items:4
         }
     }
 });
+
+
+  
+
+ 
 
 
 
@@ -173,9 +186,7 @@ var stream = {
  $('#myCarousel').carousel({
   interval: 4000
 });
- $('#myCarouselVideo').carousel({
-  interval: 4000
-});
+
  
 
 $('.carousel .item').each(function(){
@@ -195,6 +206,17 @@ $('.carousel .item').each(function(){
   }
 });
 
+/*================radio code==============================*/
+ $('#audio-player').mediaelementplayer({
+            alwaysShowControls: true,
+            features: ['playpause','volume','progress'],
+            audioVolume: 'horizontal',
+            audioWidth: 400,
+            audioHeight: 120
+        });
+
+
+/*================ end of radio code==============================*/
 
 
 

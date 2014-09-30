@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 20140925115323) do
     t.datetime "updated_at"
   end
 
+  create_table "bible_hierarchies", id: false, force: true do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+  end
+
+  add_index "bible_hierarchies", ["ancestor_id", "descendant_id"], name: "index_bible_hierarchies_on_ancestor_id_and_descendant_id", unique: true
+  add_index "bible_hierarchies", ["descendant_id"], name: "index_bible_hierarchies_on_descendant_id"
+
   create_table "bibles", force: true do |t|
     t.string   "name"
     t.string   "bible_cover"
@@ -64,6 +73,7 @@ ActiveRecord::Schema.define(version: 20140925115323) do
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
     t.string   "slug"
     t.integer  "bible_type"
     t.integer  "category_id"

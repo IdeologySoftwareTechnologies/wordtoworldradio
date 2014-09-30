@@ -33,7 +33,9 @@
               <%end%>
               
               <%if Category.last.bibles.count!=0 %>
+
               <%if Category.last.bibles.first.chapters.count!=0 %>
+
 
               <li><%=link_to "New", category_bible_chapter_path(:category_id=> 2,:bible_id=>Category.last.bibles.first,:id=>Category.last.bibles.first.chapters.first)%></li>
               

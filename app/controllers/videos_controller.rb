@@ -13,6 +13,7 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     @videos=Video.where.not(id: @video.id)
+     @videos_bottom_pagiantion  = Video.paginate(:page => params[:page], :per_page => 3)
   end
 
   # GET /videos/new

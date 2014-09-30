@@ -9,6 +9,7 @@
 #  status      :boolean
 #  created_at  :datetime
 #  updated_at  :datetime
+#  parent_id   :integer
 #  slug        :string(255)
 #  bible_type  :integer
 #  category_id :integer
