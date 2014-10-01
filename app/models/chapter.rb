@@ -22,7 +22,7 @@
 
 class Chapter < ActiveRecord::Base
 
-  validates :chapter_number,:chapter_image,:bible_id, :presence => true
+  validates :chapter_number,:chapter_image,:chapter_audio,:bible_id, presence: true
 
     extend FriendlyId
     friendly_id :slug_candidates, use: [:slugged, :finders]
@@ -60,7 +60,9 @@ class Chapter < ActiveRecord::Base
    
 
 def bible_name
-  "#{self.bible.name}".parameterize
+  if self.bible != nil
+    "#{self.bible.name}".parameterize
+  end
 end
 
 

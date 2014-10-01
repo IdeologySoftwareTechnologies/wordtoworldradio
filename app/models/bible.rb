@@ -22,7 +22,7 @@
 #
 
 class Bible < ActiveRecord::Base
-  validates :name, :presence => true
+  validates :name,:category, :presence => true
   has_many :chapters, dependent: :destroy
   belongs_to :category, dependent: :destroy
   extend FriendlyId

@@ -8,6 +8,34 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_admin)
 
+
+config.model "Bible" do
+    edit do      
+      field :name
+      field :admin
+      field :status
+      field :category      
+    end
+  end
+
+  config.model "Category" do
+    edit do      
+      field :name         
+    end
+  end
+
+  config.model "Chapter" do
+    edit do      
+      field :chapter_number 
+      field :chapter_image
+      field :chapter_audio
+      field :bible 
+      field :admin 
+      field :status        
+    end
+  end
+
+
   ## == Cancan ==
   # config.authorize_with :cancan
 
