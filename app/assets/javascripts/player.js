@@ -75,36 +75,57 @@ $.ajax({
 
 });
 
-/* ======================changed code to mediaelemnts player=================== 
-  var stream = {
-    title: "ideology",
-    mp3: "http://202.88.237.208:8000/;stream/1"
-  },
-  ready = false;
 
-  $("#jquery_jplayer_5").jPlayer({
-    ready: function (event) {
-      ready = true;
-      $(this).jPlayer("setMedia", stream);
-    },
-    pause: function() {
-      $(this).jPlayer("clearMedia");
-    },
-    error: function(event) {
-      if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
-        // Setup the media stream again and play it.
-        $(this).jPlayer("setMedia", stream).jPlayer("play");
-      }
-    },
-    swfPath: "../js",
-    supplied: "mp3",
-    preload: "none",
-    wmode: "mobile",
-    keyEnabled: true
-    
-  }); 
+/*================radio code==============================*/
+ $('#audio-player').mediaelementplayer({
+            alwaysShowControls: true,
+            features: ['playpause','volume','progress'],
+            audioVolume: 'horizontal',
+            audioWidth: 400,
+            audioHeight: 120
+        });
+
+
+
+  $.SHOUTcast({
+   host : '202.88.237.208',
+   port : 8000
+}).stats(function(){
+   $('#songtitle').text(this.get('songtitle'));
+   $('#status').text(this.get('status'));
+   $('#currentlisteners').text(this.get('currentlisteners'));
+   $('#peaklisteners').text(this.get('peaklisteners'));
+   $('#streamhits').text(this.get('streamhits'));
+   $('#nexttitle').text(this.get('nexttitle'));
+   $('#content').text(this.get('content'));
+
+
+
+
+   /* options 
+    currentlisteners
+    peaklisteners
+    maxlisteners
+    uniquelisteners
+    averagetime
+    servergenre
+    serverurl
+    servertitle
+    songtitle
+    nexttitle
+    streamhits
+    streamstatus
+    bitrate
+    content
+    version
+    status* (Offline, Awaiting Connection, On Air)
 */
+});
 
+/*================radio code==============================*/
+
+
+/*================carousel code==============================*/
 
   $('#carousel-example-generic-mobile').swipe( {
     swipeLeft: function() {
@@ -176,13 +197,7 @@ $.ajax({
 });
 
 
-  
 
- 
-
-
-
-/* carousel ====================================================================== */
  
  $('#myCarousel').carousel({
   interval: 4000
@@ -208,54 +223,8 @@ $('.carousel .item').each(function(){
 });
 
 
+/*================carousel code==============================*/
 
-/*================radio code==============================*/
- $('#audio-player').mediaelementplayer({
-            alwaysShowControls: true,
-            features: ['playpause','volume','progress'],
-            audioVolume: 'horizontal',
-            audioWidth: 400,
-            audioHeight: 120
-        });
-
-
-
-  $.SHOUTcast({
-   host : '202.88.237.208',
-   port : 8000
-}).stats(function(){
-   $('#songtitle').text(this.get('songtitle'));
-   $('#status').text(this.get('status'));
-   $('#currentlisteners').text(this.get('currentlisteners'));
-   $('#peaklisteners').text(this.get('peaklisteners'));
-   $('#streamhits').text(this.get('streamhits'));
-   $('#nexttitle').text(this.get('nexttitle'));
-   $('#content').text(this.get('content'));
-
-
-
-
-   /* options 
-    currentlisteners
-    peaklisteners
-    maxlisteners
-    uniquelisteners
-    averagetime
-    servergenre
-    serverurl
-    servertitle
-    songtitle
-    nexttitle
-    streamhits
-    streamstatus
-    bitrate
-    content
-    version
-    status* (Offline, Awaiting Connection, On Air)
-*/
-});
-
-/*================radio code==============================*/
 
 
  $("#jquery_jplayer_1").bind($.jPlayer.event.setmedia, function(event) { 
