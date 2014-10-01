@@ -6,22 +6,20 @@ class BiblesController < ApplicationController
   end
   def show
     #redirect_to bible_chapters_path(@bible)  
-  end  
-
-        redirect_to bible_chapters_path(@bible)
-  end
-
-  # GET /bibles/new
+  
 
   def new
     redirect_to bibles_path
   end  
+
   def edit
     redirect_to bibles_path 
   end
+
   def update
     redirect_to bibles_path
   end
+  
   private    
     def set_bible
       @bible = Bible.find(params[:id])
