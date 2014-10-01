@@ -3,8 +3,7 @@ class ChaptersController < ApplicationController
     @chapters = Chapter.all    
   end
 
-  def show
-    @categories = Category.all  
+   
   def show    
     @categories = Category.all 
     if params[:category_id].to_i ==0
