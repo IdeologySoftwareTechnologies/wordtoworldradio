@@ -1,13 +1,29 @@
 
-	<% stylesheet_link_tag "radioplayer.css" %>
-
-
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<% javascript_include_tag "jquery.shoutcast.easy.min.js"%>
+</head>
+<body>
 
 <div class="audio-player">
-    <h1>Demo - Preview Song</h1>
-    
-    <%= image_tag "cover.png" , class: "cover" %>
-    <audio id="audio-player" src="http://208.77.21.33:12310/;" type="audio/mp3" controls="controls"></audio>
+    <audio id="audio-player" src="http://202.88.237.208:8000/;" type="audio/mp3" controls="controls"></audio>
 </div>
+
+Title:<div id="songtitle"></div>
+Status:<div id="status"></div>
+currentlisteners:<div id="currentlisteners"></div>
+
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
+
+
+
+
 
 

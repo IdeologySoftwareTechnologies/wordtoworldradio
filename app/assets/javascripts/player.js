@@ -1,8 +1,6 @@
 $(function(){
 
 
-
-
 //js for multiple slide carousel
  
 //ends multiple slide carousel
@@ -77,7 +75,8 @@ $.ajax({
 
 });
 
-var stream = {
+/* ======================changed code to mediaelemnts player=================== 
+  var stream = {
     title: "ideology",
     mp3: "http://202.88.237.208:8000/;stream/1"
   },
@@ -103,7 +102,8 @@ var stream = {
     wmode: "mobile",
     keyEnabled: true
     
-  });
+  }); 
+*/
 
 
   $('#carousel-example-generic-mobile').swipe( {
@@ -182,7 +182,8 @@ var stream = {
 
 
 
-/* carousel ====================================================================================== */
+/* carousel ====================================================================== */
+ 
  $('#myCarousel').carousel({
   interval: 4000
 });
@@ -206,6 +207,8 @@ $('.carousel .item').each(function(){
   }
 });
 
+
+
 /*================radio code==============================*/
  $('#audio-player').mediaelementplayer({
             alwaysShowControls: true,
@@ -216,11 +219,43 @@ $('.carousel .item').each(function(){
         });
 
 
-/*================ end of radio code==============================*/
+
+  $.SHOUTcast({
+   host : '202.88.237.208',
+   port : 8000
+}).stats(function(){
+   $('#songtitle').text(this.get('songtitle'));
+   $('#status').text(this.get('status'));
+   $('#currentlisteners').text(this.get('currentlisteners'));
+   $('#peaklisteners').text(this.get('peaklisteners'));
+   $('#streamhits').text(this.get('streamhits'));
+   $('#nexttitle').text(this.get('nexttitle'));
+   $('#content').text(this.get('content'));
 
 
 
 
+   /* options 
+    currentlisteners
+    peaklisteners
+    maxlisteners
+    uniquelisteners
+    averagetime
+    servergenre
+    serverurl
+    servertitle
+    songtitle
+    nexttitle
+    streamhits
+    streamstatus
+    bitrate
+    content
+    version
+    status* (Offline, Awaiting Connection, On Air)
+*/
+});
+
+/*================radio code==============================*/
 
 
  $("#jquery_jplayer_1").bind($.jPlayer.event.setmedia, function(event) { 
