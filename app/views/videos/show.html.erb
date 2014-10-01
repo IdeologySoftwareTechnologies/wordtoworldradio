@@ -8,10 +8,42 @@
     <% end %>
   </div>
 </div>-->
-<div id="owl-demo-video" class="owl-carousel">
-    <% @videos.each do |video| %>
-    <div class="item"> <a href="<%= video_path(video) %>"><%= image_tag video.video_url(:thumb) , :class => "img-responsive" %></a><center><%= video.name%></center> </div>
-    <%end%> 
+<div>
+  <% if @videosall.count==0%>
+  <div><center><h4>No videos</h4></center></div>
+  <% else %>
+    <% @video_first_id=@video_first.id %>
+    <% @videos_remain=@videosall.where('id NOT IN(?)', @video_first_id) %>    
+    <div class="hidden-lg">
+      <div id="owl-demo" class="owl-carousel">
+      <% @videosall.each do |video| %>
+        <div class="item"> <a href="<%= video_path(video) %>"><%= image_tag video.video_url(:thumb) , :class => "img-responsive" %></a><center><%= video.name%></center> </div>
+       <%end%> 
+      </div>
+  </div>
+  <!-- slider for  videos -->
+  <div class="row visible-lg" >
+    <center><h3>Jukebox</h3></center>
+    <div class="carousel slide" id="myCarousel" >
+      <div class="carousel-inner" style="height:110px">
+        
+        <div class="item active" >
+          <div class="col-lg-3"><a href="<%= video_path(@video_first) %>">
+          <%= image_tag @video_first.video_url(:thumb) , :class => "img-responsive" %></a></div>
+        </div>
+        <% @videos_remain.each do |video| %>
+        <div class="item" >
+          <div class="col-lg-3"><a href="<%= video_path(video) %>"><%= image_tag video.video_url(:thumb) , :class => "img-responsive" %></a></div>
+        </div>
+        <%end%>
+        
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+
+    </div>
+  </div>
+  <% end %>
 </div>
 
 
