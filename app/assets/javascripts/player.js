@@ -142,6 +142,7 @@ var stream = {
     margin:10,
     autoplay: true,
     autoplayTimeout: 2000,
+    
     nav:true,
     responsive:{
         0:{
@@ -174,6 +175,19 @@ var stream = {
         }
     }
 });
+
+  
+  $('#owl-demo-album').owlCarousel({
+    loop:true,
+    margin:10,
+    autoplay: true,
+    autoplayTimeout: 2000,
+    animateOut: 'fadeOut',
+    
+    items:1
+    
+});
+
 
 
   

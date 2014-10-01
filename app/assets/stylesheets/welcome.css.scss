@@ -24,6 +24,18 @@
 #owl-demo-video .item img{
   display: block;
   width: 100%;
+  height: 50%;
+  
+}
+
+#owl-demo-album .item{
+  margin-top: 3px;
+
+
+}
+#owl-demo-album .item img{
+  display: block;
+  width: 100%;
   height: auto;
   
 }
@@ -108,6 +120,17 @@ border-radius: 3px;
 .owl-theme .owl-dots .owl-dot {
 display: inline-block;
 zoom: 1;
+}
+
+.audio-player
+{
+  
+}
+.radio-side-text
+{
+  
+  text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+
 }
 
 .carousel-inner .active.left { left: -25%; }

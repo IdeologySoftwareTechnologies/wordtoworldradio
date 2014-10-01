@@ -111,12 +111,40 @@
   <%= image_tag "daily .jpg", class: "img-responsive"%>
 
 </div>
+<div >
+<div class="row "  >
+   <div class="col-md-3 col-sm-3 hidden-xs">
+     <div id="owl-demo-album" class="owl-carousel">
+      <% @albums_random.each do |album| %>
+      <div class="item"> <a href="<%= album_path(album) %>"><%= image_tag album.cover_url , :class => "img-responsive" %></a><center><%= album.name%></center> </div>
+      <%end%> 
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+    <div class="audio-player">
+   
+    <%= image_tag "cover.png" , class: "cover" %>
+    <audio id="audio-player" src="http://208.77.21.33:12310/;" type="audio/mp3" controls="controls"></audio>
+</div>
+
+    </div>
+    <div class="col-md-3 col-sm-3 ">
+    <div class="radio-side-text">
+      Title:<div id="songtitle"></div>
+      Status:<div id="status"></div>
+      currentlisteners:<div id="currentlisteners"></div>
+    </div>
+    </div>
+</div>
+</div>
+
+
 <!-- Slider for listing videos-->
 <div style="background-color:#FFE2AA">
 <%if @videos.count==0%>
 <h3>No videos</h3>
 <%else%>
-<div id="owl-demo-video" class="owl-carousel">
+<div id="owl-demo-video" class="owl-carousel" >
     <% @videos.each do |video| %>
     <div class="item"> <a href="<%= video_path(video) %>"><%= image_tag video.video_url(:thumb) , :class => "img-responsive" %></a><center><%= video.name%></center> </div>
     <%end%> 
