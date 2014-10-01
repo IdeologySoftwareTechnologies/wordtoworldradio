@@ -1,14 +1,12 @@
-class ChaptersController < ApplicationController
-  
-
+class ChaptersController < ApplicationController  
   def index
-    @chapters = Chapter.all
-    
+    @chapters = Chapter.all    
   end
 
   def show
-    @categories = Category.all   
-
+    @categories = Category.all  
+  def show    
+    @categories = Category.all 
     if params[:category_id].to_i ==0
        @bibles = Bible.all
     else
@@ -21,16 +19,13 @@ class ChaptersController < ApplicationController
     end
     @bible = Bible.find_by_slug(params[:bible_id])
     @chapter = Chapter.find_by_slug(params[:id])
-
     @chapters = @bible.chapters.all  
     #@chapter = Chapter.find(params[:id])
     #@bible = Bible.find(params[:bible_id])     
+
+    puts"===========",@bibles.count
+    puts "=========="
   end
-
-
-
-
-
 
 private   
     def chapter_params

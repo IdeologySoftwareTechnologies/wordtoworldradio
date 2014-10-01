@@ -11,6 +11,10 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @videosall = Video.all
+    @video_first=Video.first
+    @album_first=Album.first
+    
     @video = Video.find(params[:id])
     @videos=Video.where.not(id: @video.id)
      @videos_bottom_pagiantion  = Video.paginate(:page => params[:page], :per_page => 3)

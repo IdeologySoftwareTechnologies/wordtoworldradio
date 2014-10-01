@@ -6,7 +6,7 @@ class BiblesController < ApplicationController
   end
   def show
     #redirect_to bible_chapters_path(@bible)  
-  end  
+  
 
   def new
     redirect_to bibles_path
